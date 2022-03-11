@@ -106,7 +106,7 @@
             <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
                 <div
                     class="white-box single-summery @if (app('dashboard_setup')->where('type', 'todays_visitor')->first()->is_active == 1) active @elseif (app('dashboard_setup')->where('type', 'todays_visitor')->first()->is_active == 2) bg_active  @endif">
-                    <a href="#">
+                    <a href="{{route('report.visitor_report')}}">
                         <div class="d-block mt-10">
                             <h3>{{ __('dashboard.visitor') }}</h3>
                             <img class="demo_wait d-none" height="60px"

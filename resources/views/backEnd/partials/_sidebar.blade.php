@@ -43,8 +43,6 @@
             </li>
         @endif
 
-
-
         @if(isModuleActive('MultiVendor'))
             @include('multivendor::menu')
         @endif
@@ -102,7 +100,10 @@
             @include('account::menu')
         @endif
 
-        @include('sidebarmanager::menu')
+        @if (env('SIDEBARMAN_IS_ACTIVE ') === true)
+        @include('sidebarmanager::menu') 
+        @endif
+
         @if(isModuleActive('Otp'))
             @include('otp::menu')
         @endif

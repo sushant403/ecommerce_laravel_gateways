@@ -6,7 +6,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="box_header common_table_header">
-                        <div class="main-title d-md-flex">
+                        <div class="main-title d-md-block">
                             <h3 class="mb-0 mr-30 mb_xs_15px mb_sm_20px">{{__('product.category_info')}}</h3>
                         </div>
                     </div>

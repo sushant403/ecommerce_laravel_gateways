@@ -85,18 +85,6 @@
                     <a href="{{ route('maintenance.index') }}" @if (request()->is('generalsetting/maintenance-mode')) class="active" @endif>{{ __('general_settings.maintenance') }} {{ __('general_settings.mode') }}</a>
                 </li>
             @endif
-
-            @if (permissionCheck('generalsetting.updatesystem') && menuManagerCheck(2,16,'generalsetting.updatesystem')->status == 1)
-                <li data-position="{{ menuManagerCheck(2,16,'generalsetting.updatesystem')->position }}">
-                    <a href="{{ route('generalsetting.updatesystem') }}" @if (request()->is('generalsetting/update-system')) class="active" @endif>{{ __('general_settings.about_update') }}</a>
-                </li>
-            @endif
-
-            @if (permissionCheck('modulemanager.index') && menuManagerCheck(2,16,'modulemanager.index')->status == 1)
-                <li data-position="{{ menuManagerCheck(2,16,'modulemanager.index')->position }}">
-                    <a href="{{ route('modulemanager.index') }}" @if (request()->is('modulemanager')) class="active" @endif>{{ __('general_settings.module') }} {{__('general_settings.manager')}}</a>
-                </li>
-            @endif
             @if (permissionCheck('generalsetting.seo-setup') && menuManagerCheck(2,16,'generalsetting.seo-setup')->status == 1)
             <li data-position="{{ menuManagerCheck(2,16,'generalsetting.seo-setup')->position }}">
                 <a href="{{ route('generalsetting.seo-setup') }}" @if (request()->is('generalsetting/seo-setup')) class="active" @endif>{{ __('general_settings.homepage_seo_setup') }}</a>

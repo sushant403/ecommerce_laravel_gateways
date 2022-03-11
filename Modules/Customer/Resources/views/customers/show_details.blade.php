@@ -17,7 +17,7 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-12">
+                            <div class="col-md-5 col-sm-12">
                                 <div class="img_div">
                                     <img class="student-meta-img mb-3" src="{{ (@$customer->avatar != null) ? showImage($customer->avatar) : showImage('frontend/default/img/avatar.jpg') }}"  alt="">
                                 </div>
@@ -51,7 +51,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-3 col-sm-12 customer_profile m-2">
+                            <div class="col-md-3 col-sm-12 customer_profile">
                                 <h3>{{__('common.order_summary')}}</h3>
                                 <table class="table table-borderless customer_view">
                                     <tr><td>{{__('common.total_orders')}}</td>
@@ -66,7 +66,7 @@
                                     <td>: <span class="ml-1"></span>{{count($customer->orders->where('is_cancelled', 1))}}</td></tr>
                                 </table>
                             </div>
-                            <div class="col-md-3 col-sm-12 customer_profile m-2">
+                            <div class="col-md-4 col-sm-12 customer_profile">
                                 <h3>{{__('common.wallet_summary')}}</h3>
                                 <table class="table table-borderless customer_view">
                                     <tr><td>{{__('common.total_recharge')}}</td>

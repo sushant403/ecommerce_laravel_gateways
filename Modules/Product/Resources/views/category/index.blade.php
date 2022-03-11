@@ -23,7 +23,7 @@
                 @endif
                 <div class="col-lg-8 list_div">
                     <div class="box_header common_table_header">
-                        <div class="main-title d-md-flex">
+                        <div class="main-title d-md-block pt-3">
                             <h3 class="mb-0 mr-30 mb_xs_15px mb_sm_20px">{{__('product.category_list')}}</h3>
                             @if (permissionCheck('product.csv_category_download'))
                                 <ul class="d-flex">

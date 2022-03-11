@@ -1,4 +1,4 @@
-<div class="main-title d-md-flex form_div_header">
+<div class="main-title d-md-block pb-3 form_div_header">
     <h3 class="mb-3 mr-30 mb_xs_15px mb_sm_20px">{{__('product.add_category')}} </h3>
     @if (permissionCheck('product.bulk_category_upload_page'))
         <ul class="d-flex">
