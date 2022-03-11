@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 11, 2022 at 07:07 PM
+-- Generation Time: Mar 11, 2022 at 10:23 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.27
 
@@ -468,10 +468,10 @@ CREATE TABLE `business_settings` (
 --
 
 INSERT INTO `business_settings` (`id`, `category_type`, `type`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'verification and notifications', 'email_verification', 0, '2022-03-06 21:36:05', NULL),
+(1, 'verification and notifications', 'email_verification', 1, '2022-03-06 21:36:05', '2022-03-11 21:58:32'),
 (2, 'verification and notifications', 'sms_verification', 0, '2022-03-06 21:36:05', NULL),
-(3, 'verification and notifications', 'mail_notification', 0, '2022-03-06 21:36:05', NULL),
-(4, 'verification and notifications', 'system_notification', 0, '2022-03-06 21:36:05', NULL),
+(3, 'verification and notifications', 'mail_notification', 1, '2022-03-06 21:36:05', '2022-03-11 21:58:32'),
+(4, 'verification and notifications', 'system_notification', 1, '2022-03-06 21:36:05', '2022-03-11 21:58:34'),
 (5, 'sms_gateways', 'Twillo', 0, '2022-03-06 21:36:05', NULL),
 (6, 'sms_gateways', 'TextLocal', 0, '2022-03-06 21:36:05', NULL),
 (7, 'vendor_configuration', 'Multi-Vendor System Activate', 0, '2022-03-06 21:36:05', NULL),
@@ -579,6 +579,14 @@ CREATE TABLE `carts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `user_id`, `session_id`, `seller_id`, `product_type`, `product_id`, `qty`, `price`, `total_price`, `sku`, `is_select`, `shipping_method_id`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, 1, 'product', 1, 2, 1250, 2500, NULL, 1, 0, '2022-03-11 19:41:57', '2022-03-11 21:37:46'),
+(2, 1, NULL, 1, 'product', 2, 2, 1250, 2500, NULL, 1, 0, '2022-03-11 20:08:32', '2022-03-11 21:48:52');
 
 -- --------------------------------------------------------
 
@@ -699,6 +707,16 @@ CREATE TABLE `category_product` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `category_product`
+--
+
+INSERT INTO `category_product` (`id`, `category_id`, `product_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(2, 10, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(3, 1, 2, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(4, 10, 2, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
 
 -- --------------------------------------------------------
 
@@ -49307,6 +49325,13 @@ CREATE TABLE `customer_addresses` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `customer_addresses`
+--
+
+INSERT INTO `customer_addresses` (`id`, `customer_id`, `name`, `email`, `phone`, `address`, `city`, `state`, `country`, `postal_code`, `is_shipping_default`, `is_billing_default`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Customer', 'sushantpoudel8@gmail.com', '9860489494', 'Harissidhi-29', '29785', '2566', '153', '44700', 1, 1, '2022-03-11 22:13:41', '2022-03-11 22:13:41');
+
 -- --------------------------------------------------------
 
 --
@@ -50142,6 +50167,13 @@ CREATE TABLE `guest_order_details` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `guest_order_details`
+--
+
+INSERT INTO `guest_order_details` (`id`, `order_id`, `guest_id`, `billing_name`, `billing_email`, `billing_phone`, `billing_address`, `billing_city_id`, `billing_state_id`, `billing_country_id`, `billing_post_code`, `shipping_name`, `shipping_email`, `shipping_phone`, `shipping_address`, `shipping_city_id`, `shipping_state_id`, `shipping_country_id`, `shipping_post_code`, `created_at`, `updated_at`) VALUES
+(1, 1, '1-220312-015739', 'Sushant Poudel', 'sushantpoudel8@gmail.com', '9860489494', 'Harissidhi-29', 29792, 2566, 153, 44700, 'Sushant Poudel', 'sushantpoudel8@gmail.com', '9860489494', 'Harissidhi-29', 29792, 2566, 153, 44700, '2022-03-11 20:12:39', '2022-03-11 20:12:39');
+
 -- --------------------------------------------------------
 
 --
@@ -50721,7 +50753,41 @@ INSERT INTO `log_activity` (`id`, `subject`, `type`, `url`, `method`, `ip`, `log
 (55, 'Currency updated Successfully', 1, 'https://printgaraun.test/setup/currencies/2', 'PUT', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:03:18', '2022-03-11 19:03:18'),
 (56, 'Updated Successfully', 1, 'https://printgaraun.test/generalsetting/general-settings/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:04:05', '2022-03-11 19:04:05'),
 (57, 'tag store successful.', 1, 'https://printgaraun.test/setup/tag-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:04:46', '2022-03-11 19:04:46'),
-(58, 'tag store successful.', 1, 'https://printgaraun.test/setup/tag-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:04:53', '2022-03-11 19:04:53');
+(58, 'tag store successful.', 1, 'https://printgaraun.test/setup/tag-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:04:53', '2022-03-11 19:04:53'),
+(59, 'product upload successful.', 1, 'https://printgaraun.test/products/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(60, 'Product updated.', 1, 'https://printgaraun.test/products/update/1', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:41:44', '2022-03-11 19:41:44'),
+(61, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 19:41:57', '2022-03-11 19:41:57'),
+(62, 'product upload successful.', 1, 'https://printgaraun.test/products/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(63, 'Product updated.', 1, 'https://printgaraun.test/products/update/1', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
+(64, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 20:08:32', '2022-03-11 20:08:32'),
+(65, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 20:09:18', '2022-03-11 20:09:18'),
+(66, 'order store successful.', 1, 'https://printgaraun.test/checkout?gateway_id=eyJpdiI6IjJQNnlDekpZcDBIRk9EOWVNaTI5YVE9PSIsInZhbHVlIjoiTy9Ca0Nva1Y4eGw4UFRVcDZpL2Vodz09IiwibWFjIjoiNmNjMTQyMWZhNjhkY2FhMWI3NjEyZTFhY2JmOTYzYTRjYjVlZTEyYmNiMmIzMDM2NzU3MTcwNWM1Y2U4NGI2NiIsInRhZyI6IiJ9&payment_id=eyJpdiI6IkU3OGVaRjA3b1h2L3YrK1hxdFFIeUE9PSIsInZhbHVlIjoiYXlwY0N2ZnVsUXQ0b2FySkZ4ZTQ1dz09IiwibWFjIjoiOTIwYzRjMzk1ZGI5MmVmMzIzNWI0ODAzZjQ2MTNkOGY2ZTA2MjhiMDE1ZjUxYjNhMjVkNTkzOGZhYTQwNzdjZCIsInRhZyI6IiJ9&step=complete_order', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 20:12:39', '2022-03-11 20:12:39'),
+(67, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:37:47', '2022-03-11 21:37:47'),
+(68, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:48:52', '2022-03-11 21:48:52'),
+(69, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:50:52', '2022-03-11 21:50:52'),
+(70, 'sales info update successful.', 1, 'https://printgaraun.test/ordermanage/sales-info-update-admin/1', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:54:37', '2022-03-11 21:54:37'),
+(71, 'General activation Updated !!!', 1, 'https://printgaraun.test/generalsetting/update-activation-status', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:58:32', '2022-03-11 21:58:32'),
+(72, 'General activation Updated !!!', 1, 'https://printgaraun.test/generalsetting/update-activation-status', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:58:32', '2022-03-11 21:58:32'),
+(73, 'General activation Updated !!!', 1, 'https://printgaraun.test/generalsetting/update-activation-status', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:58:34', '2022-03-11 21:58:34'),
+(74, 'notification updated successful.', 1, 'https://printgaraun.test/generalsetting/notification/1', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:59:09', '2022-03-11 21:59:09'),
+(75, 'notification updated successful.', 1, 'https://printgaraun.test/generalsetting/notification/5', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:59:26', '2022-03-11 21:59:26'),
+(76, 'notification updated successful.', 1, 'https://printgaraun.test/generalsetting/notification/7', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 21:59:45', '2022-03-11 21:59:45'),
+(77, 'Customer Updated Successfully.', 1, 'https://printgaraun.test/admin/customer/update/2', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:01:14', '2022-03-11 22:01:14'),
+(78, 'Customer - logged in at : 2022-03-12 03:46:30', 2, 'https://printgaraun.test/login', 'POST', '127.0.0.1', 1, '2022-03-12 03:46:30', NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:01:30', '2022-03-11 22:01:30'),
+(79, 'Customer Updated Successfully.', 1, 'https://printgaraun.test/admin/customer/update/2', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:03:49', '2022-03-11 22:03:49'),
+(80, 'Customer - logged in at : 2022-03-12 03:49:52', 2, 'https://printgaraun.test/login', 'POST', '127.0.0.1', 1, '2022-03-12 03:49:52', NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:04:52', '2022-03-11 22:04:52'),
+(81, 'purchased gift card successful.', 1, 'https://printgaraun.test/purchased-gift-cards', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:10:35', '2022-03-11 22:10:35'),
+(82, 'purchased gift card successful.', 1, 'https://printgaraun.test/purchased-gift-cards', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:12:10', '2022-03-11 22:12:10'),
+(83, 'cart store successful.', 1, 'https://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:12:59', '2022-03-11 22:12:59'),
+(84, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:14:47', '2022-03-11 22:14:47'),
+(85, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:14:51', '2022-03-11 22:14:51'),
+(86, 'Order payment successful.', 1, 'https://printgaraun.test/order/payment', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:18:28', '2022-03-11 22:18:28'),
+(87, 'order store successful.', 1, 'https://printgaraun.test/checkout?gateway_id=eyJpdiI6IlZZZ1UyWlFSelNZaVVZZFFiaDdQWlE9PSIsInZhbHVlIjoiNEluRnh6WjFvblRVWUhHQnVNRzNUdz09IiwibWFjIjoiNDI3MjdhMWZkZGJkZWI2OWZiOTE0NTI0ZGNkMGEwYmU5NWQzY2Y5MTEwZDllMDJhYzU3YTdkZmVhODFjYTZjOSIsInRhZyI6IiJ9&payment_id=eyJpdiI6ImFPM1ltV0tMeGpuWWlkbEhITVZmaFE9PSIsInZhbHVlIjoibjZsRmxEZXhzMTkrNVpoNnBZZTlhZz09IiwibWFjIjoiZWJiY2NiODE5ZTFjODc5NmQ4YjU2OGNjMjdhYjg1OGQ2ZDUyOThmMTkzZWM4Y2IzN2YzOWMxMThmMDY4Yzg2YyIsInRhZyI6IiJ9&step=complete_order', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:18:35', '2022-03-11 22:18:35'),
+(88, 'My purchase order package cancel successful.', 1, 'https://printgaraun.test/my-purchase-package-order-cancell', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 2, '2022-03-11 22:20:02', '2022-03-11 22:20:02'),
+(89, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:20:22', '2022-03-11 22:20:22'),
+(90, 'payment gateway credential update successful.', 1, 'https://printgaraun.test/paymentgateway/configuration', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:10', '2022-03-11 22:21:10'),
+(91, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:27', '2022-03-11 22:21:27'),
+(92, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:34', '2022-03-11 22:21:34');
 
 -- --------------------------------------------------------
 
@@ -51344,13 +51410,13 @@ CREATE TABLE `notification_settings` (
 --
 
 INSERT INTO `notification_settings` (`id`, `event`, `delivery_process_id`, `type`, `message`, `admin_msg`, `user_access_status`, `seller_access_status`, `admin_access_status`, `staff_access_status`, `module`, `created_at`, `updated_at`) VALUES
-(1, 'Register', NULL, 'system', 'Welcome to the system.', 'A customer has been registered.', 0, 0, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-06 21:36:17'),
+(1, 'Register', NULL, 'email,system,', 'Welcome to the system.', 'A customer has been registered.', 0, 0, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 21:59:09'),
 (2, 'Offline recharge', NULL, 'system', 'Offline recharge successful', 'Offline recharge done to user.', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-06 21:36:17'),
 (3, 'Withdraw request declined', NULL, 'system', 'Your withdraw request declined', 'A withdraw request has been declined.', 0, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-06 21:36:17'),
 (4, 'Withdraw request approve', NULL, 'system', 'Withdraw request approve', 'A withdraw request has been approved.', 0, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-06 21:36:17'),
-(5, 'Order confirmation', NULL, 'system', 'Order Confirmed', 'An order has been approved.', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-06 21:36:17'),
+(5, 'Order confirmation', NULL, 'email,system,', 'Order Confirmed', 'An order has been approved.', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 21:59:26'),
 (6, 'Pending', 1, 'system', 'Order Pending', 'An order process change to Pending', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 18:32:26'),
-(7, 'Processing', 2, 'system', 'Order Processing', 'An order process change to Processing', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 18:32:43'),
+(7, 'Processing', 2, 'email,system,', 'Order Processing', 'An order process change to Processing', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 21:59:45'),
 (8, 'Shipped', 3, 'system', 'Order Shipped', 'An order process change to Shipped', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 18:33:16'),
 (9, 'Recieved', 4, 'system', 'Order Recieved', 'An order process change to Recieved', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 18:33:35'),
 (10, 'Delivered', 5, 'system', 'Order Delivered', 'An order process change to Delivered', 1, 1, 1, 1, NULL, '2022-03-06 21:36:15', '2022-03-11 18:33:55'),
@@ -51392,6 +51458,14 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `customer_id`, `order_payment_id`, `order_type`, `order_number`, `payment_type`, `is_paid`, `is_confirmed`, `is_completed`, `is_cancelled`, `cancel_reason_id`, `customer_email`, `customer_phone`, `customer_shipping_address`, `customer_billing_address`, `number_of_package`, `grand_total`, `sub_total`, `discount_total`, `shipping_total`, `number_of_item`, `order_status`, `tax_amount`, `note`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1, NULL, '22220312015739', 1, 0, 1, 1, 0, NULL, 'sushantpoudel8@gmail.com', '9860489494', NULL, NULL, 1, 1270, 1250, 0, 20, 1, 0, 0, 'Please deliver fast.', '2022-03-11 20:12:39', '2022-03-11 21:54:37'),
+(2, 2, 2, NULL, '63220312040330', 4, 0, 0, 0, 0, NULL, 'sushantpoudel8@gmail.com', '9860489494', 1, 1, 1, 2520, 2500, 0, 20, 2, 0, 0, NULL, '2022-03-11 22:18:30', '2022-03-11 22:18:30');
+
 -- --------------------------------------------------------
 
 --
@@ -51409,6 +51483,13 @@ CREATE TABLE `order_delivery_states` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_delivery_states`
+--
+
+INSERT INTO `order_delivery_states` (`id`, `order_package_id`, `delivery_status`, `note`, `date`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, 'Order is under processing.', '2022-03-12', 1, NULL, '2022-03-11 21:54:37', '2022-03-11 21:54:37');
 
 -- --------------------------------------------------------
 
@@ -51446,6 +51527,14 @@ CREATE TABLE `order_package_details` (
   `height` double(8,2) DEFAULT NULL COMMENT 'cm'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_package_details`
+--
+
+INSERT INTO `order_package_details` (`id`, `order_id`, `carrier_order_id`, `seller_id`, `package_code`, `number_of_product`, `shipping_cost`, `shipping_date`, `shipping_method`, `carrier_id`, `shipped_by`, `is_cancelled`, `is_paid`, `cancel_reason_id`, `is_reviewed`, `delivery_status`, `last_updated_by`, `gst_claimed`, `tax_amount`, `created_at`, `updated_at`, `carrier_response`, `pickup_point_id`, `weight`, `length`, `breadth`, `height`) VALUES
+(1, 1, NULL, 1, '22031201395714', 1, 20, 'Est arrival date: 12 Mar - 15 Mar', 2, '1', NULL, 0, 0, NULL, 0, 2, NULL, 0, 0, '2022-03-11 20:12:39', '2022-03-11 21:54:37', NULL, 1, 0.00, 0.00, 0.00, 0.00),
+(2, 2, NULL, 1, '22031204300365', 2, 20, 'Est arrival date: 12 Mar - 15 Mar', 2, '1', NULL, 1, 0, 1, 0, 1, NULL, 0, 0, '2022-03-11 22:18:30', '2022-03-11 22:20:02', NULL, 1, 0.00, 0.00, 0.00, 0.00);
+
 -- --------------------------------------------------------
 
 --
@@ -51479,6 +51568,14 @@ CREATE TABLE `order_payments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `order_payments`
+--
+
+INSERT INTO `order_payments` (`id`, `user_id`, `amount`, `payment_method`, `payment_details`, `txn_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, NULL, 1270.00, '1', NULL, 'none', 0, '2022-03-11 20:12:39', '2022-03-11 20:12:39'),
+(2, 2, 2520.00, '4', NULL, 'ch_3KcGmzHDCNcU99MB1cycgmBO', 0, '2022-03-11 22:18:28', '2022-03-11 22:18:28');
+
 -- --------------------------------------------------------
 
 --
@@ -51497,6 +51594,15 @@ CREATE TABLE `order_product_details` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_product_details`
+--
+
+INSERT INTO `order_product_details` (`id`, `package_id`, `type`, `product_sku_id`, `qty`, `price`, `total_price`, `tax_amount`, `created_at`, `updated_at`) VALUES
+(1, 1, 'product', 1, 1, 1250, 1250, 0, '2022-03-11 20:12:39', '2022-03-11 20:12:39'),
+(2, 2, 'product', 1, 1, 1250, 1250, 0, '2022-03-11 22:18:30', '2022-03-11 22:18:30'),
+(3, 2, 'product', 2, 1, 1250, 1250, 0, '2022-03-11 22:18:30', '2022-03-11 22:18:30');
 
 -- --------------------------------------------------------
 
@@ -51536,17 +51642,17 @@ CREATE TABLE `payment_methods` (
 INSERT INTO `payment_methods` (`id`, `method`, `type`, `active_status`, `module_status`, `logo`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'Cash On Delivery', 'System', 1, 1, 'payment_gateway/cod.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (2, 'Wallet', 'System', 0, 1, 'payment_gateway/cod.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
-(3, 'PayPal', 'System', 0, 1, 'payment_gateway/paypal.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
-(4, 'Stripe', 'System', 0, 1, 'payment_gateway/stripe.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
+(3, 'PayPal', 'System', 1, 1, 'payment_gateway/paypal.png', 1, 1, '2022-03-06 21:36:05', '2022-03-11 22:14:51'),
+(4, 'Stripe', 'System', 1, 1, 'payment_gateway/stripe.png', 1, 1, '2022-03-06 21:36:05', '2022-03-11 22:14:47'),
 (5, 'PayStack', 'System', 0, 1, 'payment_gateway/paystack.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (6, 'RazorPay', 'System', 0, 1, 'payment_gateway/razorpay.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
-(7, 'Bank Payment', 'System', 0, 1, 'payment_gateway/bank_payment.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
+(7, 'Bank Payment', 'System', 1, 1, 'payment_gateway/bank_payment.png', 1, 1, '2022-03-06 21:36:05', '2022-03-11 22:20:22'),
 (8, 'Instamojo', 'System', 0, 1, 'payment_gateway/intamojo.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (9, 'PayTM', 'System', 0, 1, 'payment_gateway/paytm.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (10, 'Midtrans', 'System', 0, 1, 'payment_gateway/midtrans.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (11, 'PayUMoney', 'System', 0, 1, 'payment_gateway/payumoney-logo.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05'),
 (12, 'JazzCash', 'System', 0, 1, 'payment_gateway/JazzCash.jpg', 1, 1, '2022-03-06 21:36:05', '2022-03-09 11:48:35'),
-(13, 'Google Pay', 'System', 0, 1, 'payment_gateway/GooglePay.png', 1, 1, '2022-03-06 21:36:05', '2022-03-09 11:48:30'),
+(13, 'Google Pay', 'System', 0, 1, 'payment_gateway/GooglePay.png', 1, 1, '2022-03-06 21:36:05', '2022-03-11 22:21:34'),
 (14, 'FlutterWave', 'System', 0, 1, 'payment_gateway/flutterWavePayment.png', 1, 1, '2022-03-06 21:36:05', '2022-03-06 21:36:05');
 
 -- --------------------------------------------------------
@@ -52251,6 +52357,14 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `product_name`, `product_type`, `unit_type_id`, `brand_id`, `thumbnail_image_source`, `barcode_type`, `model_number`, `shipping_type`, `shipping_cost`, `discount_type`, `discount`, `tax_type`, `gst_group_id`, `tax`, `pdf`, `video_provider`, `video_link`, `description`, `specification`, `minimum_order_qty`, `max_order_qty`, `meta_title`, `meta_description`, `meta_image`, `is_physical`, `is_approved`, `status`, `display_in_details`, `requested_by`, `created_by`, `slug`, `updated_by`, `stock_manage`, `created_at`, `updated_at`) VALUES
+(1, 'Business Card', 1, 1, 1, 'uploads/images/12-03-2022/622ba53643491.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Set yourself apart with smoothed out, rounded corners.</h2></div><div class=\"text-color-standard\"><ul><li>Quarter-inch rounded corners</li><li>Fit perfectly in any standard holder or wallet</li><li>Available with most paper stocks</li><li>3 paper thicknesses: standard (14pt), premium (16pt) or premium plus (18pt)</li></ul><p><br></p><p><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/S001398003/BCMX402-bc-roundedCorner-overview_001\" style=\"width: 100%;\"><br></p><ul><li><br></li></ul><p>Rounded corner business cards have a look and feel that’s hard to miss. And the attention-grabbing shape helps keep your company top of mind.</p><p>Rounded corners are available with most of our great paper stocks, with lots more customization options, too. You can have square business cards with rounded corners or complete your design with our embossed gloss or foil accents. The shape also works well with the soft edges of many social media logos, so check out&nbsp;<a href=\"https://www.vistaprint.com/hub/social-media-icons-on-business-cards\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">how to add social media icons to business cards</a>.</p><p>Need more than 10,000? Click&nbsp;<a href=\"https://pages.vistaprintcorporate.com/business-cards-quote.html?utm_source=Vistaprint&amp;utm_medium=Form&amp;utm_campaign=Vistaprint_Form_ProductRequest_Rounded_Business_Cards&amp;utm_content=Rounded_Business_Cards\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">here</a>&nbsp;to submit a request.</p><p>Looking for ideas? Take a look at some of our favorite&nbsp;<a href=\"https://www.vistaprint.com/hub/business-card-examples\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">business card examples</a>.</p><p><br></p></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"></div></div>', '<div class=\"col-7 col-sm-12 col-vertically-center\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 496.594px; align-self: center; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"\" style=\"\"><div class=\"\" style=\"display: flex; justify-content: space-around;\"><img src=\"https://rendering.documents.cimpress.io/preview?width=980&amp;instructions_uri=https%3a%2f%2fuds.documents.cimpress.io%3a443%2fv2%2ftransient%2fprdSpecSvc%3fdocument%3dhZDBboMwDIZfpfJpk1oI0E6UWy%252bVdl2107RDCKZ4CgQloWuL%252bu5zoJ200xRFST7%252fdn57hBNaR6aDAtJIwBIqo4YWOw%252fFCG6wtVTooPgYoZMtsmpvDQeX8E2Vb%252fi9jZKtahk0SMeG02ATZflEPJ79zqKc83vjyE8%252fjXBmmZg0l9%252fbvwVvjIylK%252f8v9U7TsZt9guIDLWdwL57U32BLVaXx7mZPqKvZTs1lDnQNLaXpog8tBbSXLelgamdJ6js8%252bIsOws7YdoKK4Vz%252bIGtchCYnqo1lZo%252flUyrEMhUZ7%252fUz3D6nNRd7w2kSxl7erWZ1433vijgOMRc9xu8iRW1v0bmITHxKYvtII3SxkFmZ1KVc5bV8Wa0zTFa5ynAlRZLLDZZ5shFxP5SaXIMVW%252but%252bUIVxv9aQdENWt9%252bAA%253d%253d%26type%3dpreview&amp;scene=https%3a%2f%2fscenes.documents.cimpress.io%3a443%2fv3%2ftransient%3fdata%3dlZJRS8MwEMe%252fyrgnhQjt1pXaxw2mIk7nRBDxIW0yGxuTkVwcdfS7e6mI%252bjDBhzzc%252f3%252f53eVye9gpgQ2Up0XCwDd2twhaz7SUAkp0QTLYOitCjVDuwbcBSphfXJ3keb5aXiYPwKJ4z53ilZY%252bJi2UUZ6IsLRGkj%252fjdeuViCbMNDctaeuGbyXFa%252bRGcCdImltnpItJtzYYIcXoS2Fw16i6NdL731fWofLoOEbSmbbedyTefLY7unZKGuSorCH73Dr1binWQyljZI2xBIH8d6urwA0q7EhJkwT6noHm3dDV4x6wG3q2b9KRGl9ug6ujhE69xhidbWWcQW21dWS45%252boom7A0L9h4nB1TjrCIcbYbrr2kAn9hq%252bEbDnEJyApW%252fBfq%252bUYeZKbZlKXThM7kJzcuQt8%252fDbvwQpMbZmpoUfoP\" class=\"fluid-image p-6 design-specs-image note-float-right\" style=\"max-width: 100%; width: 100%; max-height: 500px; margin-right: auto; margin-left: auto; display: block; padding: 32px !important; float: right;\"></div><div class=\"\" style=\"display: flex; justify-content: space-around;\"><br></div></div></div><div class=\"col-5 col-sm-12 col-vertically-center\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 354.719px; align-self: center; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.62\" x 2.12\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">91.9 x 53.8 mm</p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.5\" x 2\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">88.9 x 50.8 mm</p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Safety Area</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.38\" x 1.88\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">85.9 x 47.8 mm</p></div></div></div></div>', 1, 100, 'Rounded Corner Business Cards', 'Rounded corner business cards stand out with a modern, memorable look. Lose the corners to get an edge.', 'uploads/images/12-03-2022/622ba53705268.png', 1, 1, 1, 1, 1, 1, 'business-card', 1, '1', '2022-03-11 19:38:31', '2022-03-11 19:41:44'),
+(2, 'Tote-Bag-2203450423', 1, 1, 1, 'uploads/images/12-03-2022/622bab9f6bef4.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"box-sizing: border-box; color: var(--visage-font-heading-color,inherit); font-family: var(--visage-font-heading-family, inherit); font-weight: 900; margin-bottom: 0px !important; margin-top: 0px; overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Share your brand on the go with a versatile custom tote bag.</h2><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\"><div class=\"hidden-xs hidden-sm\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"></div><div class=\"text-color-standard\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"><ul><li>Open main compartment with easy access</li><li>100% cotton canvas</li><li>Double carry handles</li><li>Print your design on both sides of the bag</li></ul><p><br></p><p><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/S001377893/Classic-Cotton-Tote-Bag-Small-Overview-Tile-001\" style=\"width: 693.802px;\"><br></p><ul><li><br></li></ul><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Decoration:</span>&nbsp;Full-Color Print</p><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Care Instructions:</span>&nbsp;To keep your printed design looking bold, washing is not recommended.</p><p>The classic cotton tote bag is a go-to favorite for event giveaways and promotional packs. Easy to design and lightweight, these personalized tote bags won’t weigh you down when traveling for a trade show, conference or industry event. So, next time you need a big-batch giveaway, provide something people will regularly use that creates a positive image of your business.</p><p>To make this classic tote bag your own, upload your logo to preview how it looks in our interactive design studio. From there, it’s easy to add additional text and edit the color and style. And if you need any help or a second opinion along the way, our design experts are on hand to support you.</p></div></h2></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"></div></div>', '<div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p></div></div></div>', 1, 100, 'Carry your logo around town with our practical, customizable totes.', 'Carry your logo around town with our practical, customizable totes.', 'uploads/images/12-03-2022/622baba03abef.png', 1, 1, 1, 1, 1, 1, 'tote-bag-2203450423', NULL, '0', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+
 -- --------------------------------------------------------
 
 --
@@ -52264,6 +52378,13 @@ CREATE TABLE `product_cross_sales` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_cross_sales`
+--
+
+INSERT INTO `product_cross_sales` (`id`, `product_id`, `cross_sale_product_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
 
 -- --------------------------------------------------------
 
@@ -52279,6 +52400,20 @@ CREATE TABLE `product_galary_images` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `product_galary_images`
+--
+
+INSERT INTO `product_galary_images` (`id`, `product_id`, `images_source`, `created_at`, `updated_at`) VALUES
+(1, 1, 'uploads/images/12-03-2022/622ba5365aa09.png', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(2, 1, 'uploads/images/12-03-2022/622ba53684c88.png', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(3, 1, 'uploads/images/12-03-2022/622ba536ae12c.png', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(4, 1, 'uploads/images/12-03-2022/622ba536dc98b.png', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(5, 2, 'uploads/images/12-03-2022/622bab9f85ab1.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(6, 2, 'uploads/images/12-03-2022/622bab9faf281.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(7, 2, 'uploads/images/12-03-2022/622bab9fdc03c.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(8, 2, 'uploads/images/12-03-2022/622baba0187b1.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+
 -- --------------------------------------------------------
 
 --
@@ -52292,6 +52427,13 @@ CREATE TABLE `product_related_sales` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_related_sales`
+--
+
+INSERT INTO `product_related_sales` (`id`, `product_id`, `related_sale_product_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
 
 -- --------------------------------------------------------
 
@@ -52356,6 +52498,14 @@ CREATE TABLE `product_sku` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `product_sku`
+--
+
+INSERT INTO `product_sku` (`id`, `product_id`, `sku`, `purchase_price`, `selling_price`, `additional_shipping`, `variant_image`, `status`, `product_stock`, `track_sku`, `weight`, `length`, `breadth`, `height`, `created_at`, `updated_at`) VALUES
+(1, 1, '012365', 0.00, 1250.00, 0, NULL, 1, 1000, NULL, '0', '0', '0', '0', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(2, 2, '012237', 0.00, 1250.00, 0, NULL, 1, 0, NULL, '0', '0', '0', '0', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+
 -- --------------------------------------------------------
 
 --
@@ -52370,6 +52520,18 @@ CREATE TABLE `product_tag` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `product_tag`
+--
+
+INSERT INTO `product_tag` (`id`, `product_id`, `tag_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(2, 1, 3, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(3, 1, 4, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(4, 2, 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(5, 2, 3, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(6, 2, 4, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+
 -- --------------------------------------------------------
 
 --
@@ -52383,6 +52545,14 @@ CREATE TABLE `product_up_sales` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_up_sales`
+--
+
+INSERT INTO `product_up_sales` (`id`, `product_id`, `up_sale_product_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
+(2, 1, 1, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
 
 -- --------------------------------------------------------
 
@@ -52434,6 +52604,15 @@ CREATE TABLE `recent_view_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `recent_view_products`
+--
+
+INSERT INTO `recent_view_products` (`id`, `seller_product_id`, `user_id`, `viewed_at`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2022-03-12', '2022-03-11 21:19:25', '2022-03-11 21:31:38'),
+(2, 2, 1, '2022-03-12', '2022-03-11 21:48:37', '2022-03-11 21:48:37'),
+(3, 2, 2, '2022-03-12', '2022-03-11 22:12:55', '2022-03-11 22:12:55');
+
 -- --------------------------------------------------------
 
 --
@@ -52450,6 +52629,13 @@ CREATE TABLE `referral_codes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `referral_codes`
+--
+
+INSERT INTO `referral_codes` (`id`, `user_id`, `referral_code`, `status`, `refer_by`, `total_used`, `created_at`, `updated_at`) VALUES
+(1, 2, '2777714219', 1, NULL, 0, '2022-03-11 22:18:30', '2022-03-11 22:18:30');
 
 -- --------------------------------------------------------
 
@@ -52950,6 +53136,14 @@ CREATE TABLE `seller_products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `seller_products`
+--
+
+INSERT INTO `seller_products` (`id`, `user_id`, `product_id`, `tax`, `tax_type`, `discount`, `discount_type`, `discount_start_date`, `discount_end_date`, `product_name`, `slug`, `thum_img`, `status`, `stock_manage`, `is_approved`, `min_sell_price`, `max_sell_price`, `total_sale`, `avg_rating`, `recent_view`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 0, NULL, 0, '1', NULL, NULL, 'Business Card', 'business-card', NULL, 1, 1, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-11 21:51:08', '2022-03-11 19:38:31', '2022-03-11 21:51:08'),
+(2, 1, 2, 0, '0', 0, '1', NULL, NULL, 'Tote-Bag-2203450423', 'tote-bag-2203450423', NULL, 1, 0, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-11 22:12:55', '2022-03-11 20:05:52', '2022-03-11 22:12:55');
+
 -- --------------------------------------------------------
 
 --
@@ -52968,6 +53162,14 @@ CREATE TABLE `seller_product_s_k_us` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `seller_product_s_k_us`
+--
+
+INSERT INTO `seller_product_s_k_us` (`id`, `user_id`, `product_id`, `product_sku_id`, `product_stock`, `purchase_price`, `selling_price`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '1', 1000, 0, 1250, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(2, 1, 2, '2', 0, 0, 1250, 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
 
 -- --------------------------------------------------------
 
@@ -57610,6 +57812,13 @@ CREATE TABLE `subscriptions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `subscriptions`
+--
+
+INSERT INTO `subscriptions` (`id`, `email`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'sushantpoudel8@gmail.com', 1, '2022-03-11 20:11:12', '2022-03-11 20:11:12');
+
 -- --------------------------------------------------------
 
 --
@@ -57760,7 +57969,9 @@ CREATE TABLE `tags` (
 
 INSERT INTO `tags` (`id`, `name`, `url`, `created_at`, `updated_at`) VALUES
 (1, 'printgaraun', NULL, '2022-03-11 19:04:46', '2022-03-11 19:04:46'),
-(2, 'pg', NULL, '2022-03-11 19:04:53', '2022-03-11 19:04:53');
+(2, 'pg', NULL, '2022-03-11 19:04:53', '2022-03-11 19:04:53'),
+(3, 'business card', NULL, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(4, 'card', NULL, '2022-03-11 19:38:31', '2022-03-11 19:38:31');
 
 -- --------------------------------------------------------
 
@@ -58146,7 +58357,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `photo`, `role_id`, `mobile_verified_at`, `email`, `is_verified`, `verify_code`, `email_verified_at`, `password`, `notification_preference`, `is_active`, `avatar`, `slug`, `phone`, `date_of_birth`, `description`, `secret_login`, `lang_code`, `currency_id`, `currency_code`, `remember_token`, `created_at`, `updated_at`, `others`) VALUES
 (1, 'Super', 'admin', '0181', NULL, 1, NULL, 'admin@printgaraun.com', 0, NULL, NULL, '$2y$10$XBQONd75fTMY759plxYoZesg8XQSNKKJX9Ep7TnaHQT.u9HjH0CL.', 'mail', 1, NULL, 'printgaraun-nepal-online-printing-business-cards-arts-and-more', NULL, NULL, NULL, 0, 'en', 72, 'NPR', 'kdj5RHfGrodBuzteoooxVkn3aQDagb31j2IkqlZVYLX1wqJ2cdpQGG9OcF8O', '2022-03-06 21:36:03', '2022-03-08 19:31:26', NULL),
-(2, 'Customer', 'PrintGaraun', NULL, NULL, 4, NULL, 'customer@printgaraun.com', 0, 'ed2b6b977120c3593ffc7b045d14bf671a7db5bf', NULL, '$2y$10$OYV8C08cWm6.B38bgFBAOu1YtpMCBCZDvQAsQjSunum5BfvHQtIvK', 'mail', 1, NULL, NULL, NULL, NULL, NULL, 0, 'en', 72, 'NPR', NULL, '2022-03-08 19:28:30', '2022-03-08 19:31:26', '[]');
+(2, 'Customer', 'PrintGaraun', NULL, NULL, 4, NULL, 'sushantpoudel8@gmail.com', 1, 'ed2b6b977120c3593ffc7b045d14bf671a7db5bf', NULL, '$2y$10$vd3euGWTMnlz1SRy1nzIWeh85M12CcC0N6BA9h.v5C.sEP4aXstAC', 'mail', 1, NULL, NULL, NULL, NULL, NULL, 0, 'en', 72, 'NPR', 'jxRB2Y36WiJfm9xNfcECtA0wGFqhFCNSwkOZMDg2thB6wNgUx3jtBbmIcPIG', '2022-03-08 19:28:30', '2022-03-11 22:07:17', '[]');
 
 -- --------------------------------------------------------
 
@@ -59689,7 +59900,7 @@ ALTER TABLE `carriers`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -59707,7 +59918,7 @@ ALTER TABLE `category_images`
 -- AUTO_INCREMENT for table `category_product`
 --
 ALTER TABLE `category_product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `chart_of_accounts`
@@ -59779,7 +59990,7 @@ ALTER TABLE `currencies`
 -- AUTO_INCREMENT for table `customer_addresses`
 --
 ALTER TABLE `customer_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customer_coupon_stores`
@@ -59947,7 +60158,7 @@ ALTER TABLE `gst_taxes`
 -- AUTO_INCREMENT for table `guest_order_details`
 --
 ALTER TABLE `guest_order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `g_s_t_groups`
@@ -60073,7 +60284,7 @@ ALTER TABLE `lb_contents`
 -- AUTO_INCREMENT for table `log_activity`
 --
 ALTER TABLE `log_activity`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `mega_menu_bottom_panels`
@@ -60175,19 +60386,19 @@ ALTER TABLE `notification_settings`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_delivery_states`
 --
 ALTER TABLE `order_delivery_states`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_package_details`
 --
 ALTER TABLE `order_package_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_package_gst`
@@ -60199,13 +60410,13 @@ ALTER TABLE `order_package_gst`
 -- AUTO_INCREMENT for table `order_payments`
 --
 ALTER TABLE `order_payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `order_product_details`
 --
 ALTER TABLE `order_product_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment_methods`
@@ -60247,25 +60458,25 @@ ALTER TABLE `pricings`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product_cross_sales`
 --
 ALTER TABLE `product_cross_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product_galary_images`
 --
 ALTER TABLE `product_galary_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product_related_sales`
 --
 ALTER TABLE `product_related_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product_reviews`
@@ -60283,19 +60494,19 @@ ALTER TABLE `product_shippings`
 -- AUTO_INCREMENT for table `product_sku`
 --
 ALTER TABLE `product_sku`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product_tag`
 --
 ALTER TABLE `product_tag`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_up_sales`
 --
 ALTER TABLE `product_up_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product_variations`
@@ -60313,13 +60524,13 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT for table `recent_view_products`
 --
 ALTER TABLE `recent_view_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `referral_codes`
 --
 ALTER TABLE `referral_codes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `referral_code_setups`
@@ -60409,13 +60620,13 @@ ALTER TABLE `search_terms`
 -- AUTO_INCREMENT for table `seller_products`
 --
 ALTER TABLE `seller_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `seller_product_s_k_us`
 --
 ALTER TABLE `seller_product_s_k_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `seller_reviews`
@@ -60499,7 +60710,7 @@ ALTER TABLE `subscribe_contents`
 -- AUTO_INCREMENT for table `subscriptions`
 --
 ALTER TABLE `subscriptions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subscription_payment_info`
@@ -60541,7 +60752,7 @@ ALTER TABLE `support_ticket_pirority`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `terms_conditions`
@@ -60637,7 +60848,7 @@ ALTER TABLE `wallet_balances`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `working_processes`
