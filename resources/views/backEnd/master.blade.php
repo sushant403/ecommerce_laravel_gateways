@@ -61,7 +61,6 @@ if($adminColor->color_mode == "solid"){
 
 <body class="admin">
 
-    {{-- loader --}}
     <div id="pre-loader" class="d-none">
         <div class="loader">
           <span></span>

@@ -10,198 +10,195 @@ use Modules\Otp\Entities\OtpConfiguration;
 use Modules\Product\Entities\Product;
 use Modules\Seller\Entities\SellerProduct;
 
-if (! function_exists('showStatus')) {
-        function showStatus($status)
-        {
-            if($status == 1){
-                return 'Active';
-            }
-            return 'Inactive';
+if (!function_exists('showStatus')) {
+    function showStatus($status)
+    {
+        if ($status == 1) {
+            return 'Active';
         }
+        return 'Inactive';
     }
+}
 
 
-    if (! function_exists('permissionCheck')) {
-        function permissionCheck($route_name)
-        {
-            if(auth()->check()){
-                if(auth()->user()->role->type == "superadmin"){
+if (!function_exists('permissionCheck')) {
+    function permissionCheck($route_name)
+    {
+        if (auth()->check()) {
+            if (auth()->user()->role->type == "superadmin") {
+                return TRUE;
+            } elseif (auth()->user()->role->type == "custom") {
+                if (auth()->user()->permissions->contains('route', $route_name)) {
                     return TRUE;
-                }elseif (auth()->user()->role->type == "custom") {
-                    if(auth()->user()->permissions->contains('route',$route_name)){
-                        return TRUE;
-                    }else{
-                        return FALSE;
-                    }
-                }else{
-                    $roles = app('permission_list');
-                    $role = $roles->where('id',auth()->user()->role_id)->first();
-                    if($role != null && $role->permissions->contains('route',$route_name)){
-                        if($role->name != 'Sub Seller'){
-                            return TRUE;
-                        }else{
-                            if(auth()->user()->permissions->contains('route',$route_name)){
-                                // dd(auth()->user()->permissions);
-                                return TRUE;
-                            }else{
-                                return FALSE;
-                            }
-                        }
-                    }else{
-                        return FALSE;
-                    }
-                }
-            }
-            return FALSE ;
-        }
-    }
-
-    if (! function_exists('single_price')) {
-        function single_price($price)
-        {
-            if(app('user_currency') != null){
-                if(app('general_setting')->currency_symbol_position == 'left'){
-                    return app('user_currency')->symbol . number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'left_with_space'){
-                    return app('user_currency')->symbol ." ". number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'right'){
-                    return number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit).app('user_currency')->symbol;
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'right_with_space'){
-                    return number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit). " " . app('user_currency')->symbol;
-                } else{
-                    return app('user_currency')->symbol ." ". number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
-                }
-
-            }
-            if(app('general_setting')->currency_symbol != null){
-                if(app('general_setting')->currency_symbol_position == 'left'){
-                    return app('general_setting')->currency_symbol . number_format($price, app('general_setting')->decimal_limit);
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'left_with_space'){
-                    return app('general_setting')->currency_symbol ." ". number_format($price, app('general_setting')->decimal_limit);
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'right'){
-                    return number_format($price, app('general_setting')->decimal_limit) . app('general_setting')->currency_symbol;
-                }
-                elseif(app('general_setting')->currency_symbol_position == 'right_with_space'){
-                    return number_format($price, app('general_setting')->decimal_limit) ." ".app('general_setting')->currency_symbol;
-                }else{
-                    return app('general_setting')->currency_symbol ." ". number_format($price, app('general_setting')->decimal_limit);
-                }
-
-            }else {
-                return '$ '.number_format($price, 2);
-            }
-        }
-    }
-
-
-    if (! function_exists('step_decimal')) {
-        function step_decimal(){
-            $step_value = app('general_setting')->decimal_limit;
-            if($step_value > 1){
-                $process_value = '0.';
-                for($i=1;$i<=$step_value;$i++){
-                    $process_value .= '0';
-                }
-                return doubleval($process_value.'1');
-            }
-            return 0;
-        }
-    }
-
-
-
-    //returns combinations of customer choice options array
-    if (! function_exists('combinations')) {
-        function combinations($arrays) {
-            $result = array(array());
-            foreach ($arrays as $property => $property_values) {
-                $tmp = array();
-                foreach ($result as $result_item) {
-                    foreach ($property_values as $property_value) {
-                        $tmp[] = array_merge($result_item, array($property => $property_value));
-                    }
-                }
-                $result = $tmp;
-            }
-            return $result;
-        }
-    }
-
-    if(!function_exists('product_attribute_editable')){
-        function product_attribute_editable($product_id){
-            $seller_product_exsist = SellerProduct::whereHas('product', function($query) use ($product_id){
-                return $query->where('product_id', $product_id)->where('user_id','!=',1);
-            })->pluck('id');
-            $order_exsist = OrderProductDetail::where('type', 'product')->whereHas('seller_product_sku', function($query) use($product_id){
-                return $query->whereHas('product', function($q) use($product_id){
-                    return $q->whereHas('product', function($q1) use($product_id){
-                        return $q1->where('product_id', $product_id);
-                    });
-                });
-            })->pluck('id');
-            if($seller_product_exsist->count() || $order_exsist->count()){
-                return false;
-            }
-            return true;
-        }
-    }
-
-    if (!function_exists('dateConvert')) {
-
-        function dateConvert($input_date){
-            try {
-                $system_date_format = session()->get('system_date_format');
-
-                if (empty($system_date_format)) {
-                    $system_date_format = app('general_setting')->dateFormat->format;
-                    session()->put('system_date_format', $system_date_format);
-                    return date_format(date_create($input_date), $system_date_format);
                 } else {
+                    return FALSE;
+                }
+            } else {
+                $roles = app('permission_list');
+                $role = $roles->where('id', auth()->user()->role_id)->first();
+                if ($role != null && $role->permissions->contains('route', $route_name)) {
+                    if ($role->name != 'Sub Seller') {
+                        return TRUE;
+                    } else {
+                        if (auth()->user()->permissions->contains('route', $route_name)) {
+                            // dd(auth()->user()->permissions);
+                            return TRUE;
+                        } else {
+                            return FALSE;
+                        }
+                    }
+                } else {
+                    return FALSE;
+                }
+            }
+        }
+        return FALSE;
+    }
+}
+
+if (!function_exists('single_price')) {
+    function single_price($price)
+    {
+        if (app('user_currency') != null) {
+            if (app('general_setting')->currency_symbol_position == 'left') {
+                return app('user_currency')->symbol . number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
+            } elseif (app('general_setting')->currency_symbol_position == 'left_with_space') {
+                return app('user_currency')->symbol . " " . number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
+            } elseif (app('general_setting')->currency_symbol_position == 'right') {
+                return number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit) . app('user_currency')->symbol;
+            } elseif (app('general_setting')->currency_symbol_position == 'right_with_space') {
+                return number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit) . " " . app('user_currency')->symbol;
+            } else {
+                return app('user_currency')->symbol . " " . number_format(($price * app('user_currency')->convert_rate), app('general_setting')->decimal_limit);
+            }
+        }
+        if (app('general_setting')->currency_symbol != null) {
+            if (app('general_setting')->currency_symbol_position == 'left') {
+                return app('general_setting')->currency_symbol . number_format($price, app('general_setting')->decimal_limit);
+            } elseif (app('general_setting')->currency_symbol_position == 'left_with_space') {
+                return app('general_setting')->currency_symbol . " " . number_format($price, app('general_setting')->decimal_limit);
+            } elseif (app('general_setting')->currency_symbol_position == 'right') {
+                return number_format($price, app('general_setting')->decimal_limit) . app('general_setting')->currency_symbol;
+            } elseif (app('general_setting')->currency_symbol_position == 'right_with_space') {
+                return number_format($price, app('general_setting')->decimal_limit) . " " . app('general_setting')->currency_symbol;
+            } else {
+                return app('general_setting')->currency_symbol . " " . number_format($price, app('general_setting')->decimal_limit);
+            }
+        } else {
+            return '$ ' . number_format($price, 2);
+        }
+    }
+}
+
+
+if (!function_exists('step_decimal')) {
+    function step_decimal()
+    {
+        $step_value = app('general_setting')->decimal_limit;
+        if ($step_value > 1) {
+            $process_value = '0.';
+            for ($i = 1; $i <= $step_value; $i++) {
+                $process_value .= '0';
+            }
+            return doubleval($process_value . '1');
+        }
+        return 0;
+    }
+}
+
+
+
+//returns combinations of customer choice options array
+if (!function_exists('combinations')) {
+    function combinations($arrays)
+    {
+        $result = array(array());
+        foreach ($arrays as $property => $property_values) {
+            $tmp = array();
+            foreach ($result as $result_item) {
+                foreach ($property_values as $property_value) {
+                    $tmp[] = array_merge($result_item, array($property => $property_value));
+                }
+            }
+            $result = $tmp;
+        }
+        return $result;
+    }
+}
+
+if (!function_exists('product_attribute_editable')) {
+    function product_attribute_editable($product_id)
+    {
+        $seller_product_exsist = SellerProduct::whereHas('product', function ($query) use ($product_id) {
+            return $query->where('product_id', $product_id)->where('user_id', '!=', 1);
+        })->pluck('id');
+        $order_exsist = OrderProductDetail::where('type', 'product')->whereHas('seller_product_sku', function ($query) use ($product_id) {
+            return $query->whereHas('product', function ($q) use ($product_id) {
+                return $q->whereHas('product', function ($q1) use ($product_id) {
+                    return $q1->where('product_id', $product_id);
+                });
+            });
+        })->pluck('id');
+        if ($seller_product_exsist->count() || $order_exsist->count()) {
+            return false;
+        }
+        return true;
+    }
+}
+
+if (!function_exists('dateConvert')) {
+
+    function dateConvert($input_date)
+    {
+        try {
+            $system_date_format = session()->get('system_date_format');
+
+            if (empty($system_date_format)) {
+                $system_date_format = app('general_setting')->dateFormat->format;
+                session()->put('system_date_format', $system_date_format);
+                return date_format(date_create($input_date), $system_date_format);
+            } else {
 
                 return date_format(date_create($input_date), $system_date_format);
-
-                }
-            } catch (\Throwable $th) {
-
-                return $input_date;
             }
+        } catch (\Throwable $th) {
+
+            return $input_date;
         }
     }
+}
 
 
-if (! function_exists('gateway_name')) {
-    function gateway_name($number) {
+if (!function_exists('gateway_name')) {
+    function gateway_name($number)
+    {
         if ($number == 1) {
             return "Cash On Delivery";
-        }elseif ($number == 2) {
+        } elseif ($number == 2) {
             return "Wallet";
-        }elseif ($number == 3) {
+        } elseif ($number == 3) {
             return "Paypal";
-        }elseif ($number == 4) {
+        } elseif ($number == 4) {
             return "Stripe";
-        }elseif ($number == 5) {
+        } elseif ($number == 5) {
             return "PayStack";
-        }elseif ($number == 6) {
+        } elseif ($number == 6) {
             return "RazorPay";
-        }elseif ($number == 7) {
+        } elseif ($number == 7) {
             return "Bank";
-        }elseif ($number == 8) {
+        } elseif ($number == 8) {
             return "Instamojo";
-        }elseif ($number == 9) {
+        } elseif ($number == 9) {
             return "PayTm";
-        }else {
+        } else {
             return "No Gateway";
         }
     }
 }
 
-if (! function_exists('wallet_balance')) {
-    function wallet_balance(){
+if (!function_exists('wallet_balance')) {
+    function wallet_balance()
+    {
         $deposite = auth()->user()->wallet_balances->where('type', 'Deposite')->sum('amount');
         $refund_back = auth()->user()->wallet_balances->where('type', 'Refund Back')->sum('amount');
         $expensed = auth()->user()->wallet_balances->where('type', 'Cart Payment')->sum('amount');
@@ -210,8 +207,9 @@ if (! function_exists('wallet_balance')) {
     }
 }
 
-if (! function_exists('seller_wallet_balance_pending')) {
-    function seller_wallet_balance_pending(){
+if (!function_exists('seller_wallet_balance_pending')) {
+    function seller_wallet_balance_pending()
+    {
         $deposite = auth()->user()->wallet_balances->where('type', 'Deposite')->where('status', 0)->sum('amount');
         $withdraw = auth()->user()->wallet_balances->where('type', 'Withdraw')->where('status', 0)->sum('amount');
         $expense = auth()->user()->wallet_balances->where('type', 'Refund')->where('status', 0)->sum('amount');
@@ -221,18 +219,18 @@ if (! function_exists('seller_wallet_balance_pending')) {
     }
 }
 
-if (! function_exists('seller_wallet_balance_running')) {
-    function seller_wallet_balance_running(){
+if (!function_exists('seller_wallet_balance_running')) {
+    function seller_wallet_balance_running()
+    {
 
         // New
         $deposite = auth()->user()->wallet_balances->where('type', 'Deposite')->where('status', 1)->sum('amount');
         $withdraw = auth()->user()->wallet_balances->where('type', 'Withdraw')->where('status', 1)->sum('amount');
         $expense = auth()->user()->wallet_balances->where('type', 'Refund')->where('status', 1)->sum('amount');
         $income = auth()->user()->wallet_balances->where('type', 'Sale Payment')->where('status', 1)->sum('amount');
-        $expensed = auth()->user()->wallet_balances->where('status',1)->where('type', 'Cart Payment')->sum('amount');
-        $rest_money = $deposite + $income - $expense - $withdraw -$expensed;
+        $expensed = auth()->user()->wallet_balances->where('status', 1)->where('type', 'Cart Payment')->sum('amount');
+        $rest_money = $deposite + $income - $expense - $withdraw - $expensed;
         return $rest_money;
-
     }
 }
 
@@ -240,8 +238,8 @@ if (!function_exists('filterDateFormatingForSearchQuery')) {
 
     function filterDateFormatingForSearchQuery($value)
     {
-        $data = explode("-",$foo = preg_replace('/\s+/', ' ', $value));
-        return [Carbon::parse($data[0])->format('Y-m-d'),Carbon::parse($data[1])->format('Y-m-d')];
+        $data = explode("-", $foo = preg_replace('/\s+/', ' ', $value));
+        return [Carbon::parse($data[0])->format('Y-m-d'), Carbon::parse($data[1])->format('Y-m-d')];
     }
 }
 
@@ -276,12 +274,11 @@ if (!function_exists('auto_approve_product_review')) {
 if (!function_exists('otp_configuration')) {
     function otp_configuration($key)
     {
-        if(isModuleActive('Otp')){
-            $otpConfiguration = OtpConfiguration::where('key',$key)->first();
+        if (isModuleActive('Otp')) {
+            $otpConfiguration = OtpConfiguration::where('key', $key)->first();
             return $otpConfiguration->value ?? NULL;
         }
         return NULL;
-
     }
 }
 
@@ -296,19 +293,17 @@ if (!function_exists('smsGatewaySetting')) {
                 return $sms_gate_way;
             } else {
                 $setting = \Modules\GeneralSetting\Entities\SmsGatewaySetting::first();
-                if($setting){
-                    $data = collect($setting->toArray())->except(['id','created_at','updated_at'])->all();
+                if ($setting) {
+                    $data = collect($setting->toArray())->except(['id', 'created_at', 'updated_at'])->all();
                     Cache::forget('sms_gateway_setting');
-                    Cache::rememberForever('sms_gateway_setting', function () use($data) {
+                    Cache::rememberForever('sms_gateway_setting', function () use ($data) {
                         return $data;
                     });
                     $sms_gate_way =  Cache::get('sms_gateway_setting');
                     return $sms_gate_way;
                 }
                 return false;
-
             }
-
         } catch (Exception $exception) {
             return false;
         }
@@ -331,7 +326,7 @@ if (!function_exists('validationMessage')) {
 
             foreach ($single_rule as $rule) {
                 $string = explode(':', $rule);
-                $message [$attribute . '.' . $string[0]] = __('validation.' . $attribute . '.' . $string[0]);
+                $message[$attribute . '.' . $string[0]] = __('validation.' . $attribute . '.' . $string[0]);
             }
         }
 
@@ -357,17 +352,15 @@ if (!function_exists('showDate')) {
 if (!function_exists('showImage')) {
     function showImage($path)
     {
-        if($path){
-            if(strpos($path, 'amazonaws.com') != false){
+        if ($path) {
+            if (strpos($path, 'amazonaws.com') != false) {
                 return $path;
-            }else{
+            } else {
                 return asset(asset_path($path));
             }
-
-        }else{
+        } else {
             return null;
         }
-
     }
 }
 
@@ -379,19 +372,18 @@ if (!function_exists('activeFileStorage')) {
                 $file_storage =  Cache::get('file_storage');
                 return $file_storage;
             } else {
-                $row = BusinessSetting::where('category_type','file_storage')->where('status',1)->first();
-                if($row){
+                $row = BusinessSetting::where('category_type', 'file_storage')->where('status', 1)->first();
+                if ($row) {
                     Cache::forget('file_storage');
-                    Cache::rememberForever('file_storage', function () use($row) {
+                    Cache::rememberForever('file_storage', function () use ($row) {
                         return $row->type;
                     });
                     $file_storage =  Cache::get('file_storage');
                     return $file_storage;
-                }else{
+                } else {
                     return 'Local';
                 }
             }
-
         } catch (Exception $exception) {
             return false;
         }
@@ -412,7 +404,6 @@ if (!function_exists('putEnvConfigration')) {
         if (is_bool($keyPosition)) {
 
             $str .= $envKey . '="' . $envValue . '"';
-
         } else {
             $endOfLinePosition = strpos($str, "\n", $keyPosition);
             $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
@@ -426,7 +417,6 @@ if (!function_exists('putEnvConfigration')) {
         } else {
             return true;
         }
-
     }
 }
 
@@ -436,17 +426,14 @@ if (!function_exists('currencyCode')) {
 
         $currency_code = app('general_setting')->currency_code;
 
-        if(\Session::has('currency')){
+        if (\Session::has('currency')) {
             $currency = \Modules\GeneralSetting\Entities\Currency::where('id', session()->get('currency'))->first();
             $currency_code = $currency->code;
         }
-        if(auth()->check()){
+        if (auth()->check()) {
             $currency_code = auth()->user()->currency_code;
         }
 
         return $currency_code;
-
     }
 }
-
-

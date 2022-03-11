@@ -4,12 +4,13 @@
 
   <body>
     <div class="modal preloader_setup" id="pre-loader">
-      <div class="loader">
+      {{-- <div class="loader">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </div> --}}
+       <div class="loader"><span>PrintGaraun..</span></div>
     </div>
     <input type="hidden" id="url" value="{{url('/')}}">
     @php

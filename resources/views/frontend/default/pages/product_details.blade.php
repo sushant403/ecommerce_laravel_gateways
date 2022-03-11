@@ -768,15 +768,16 @@
     </div>
     <input type="hidden" id="login_check" value="@if(auth()->check()) 1 @else 0 @endif">
 </section>
+                        <hr>
 <!-- product description end-->
 @if ($product->related_sales->count() > 0)
     <!-- related product here -->
-    <section class="related_product padding_top">
+    <section class="related_product padding_top pb-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_tittle">
-                        <h4>{{__('defaultTheme.related_products')}}</h4>
+                        <h3>{{__('defaultTheme.related_products')}}</h3>
                     </div>
                 </div>
                 @foreach ($product->related_sales as $key => $related_sale)

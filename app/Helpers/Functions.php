@@ -21,14 +21,14 @@ if (!function_exists('theme')) {
             return 'frontend.' . $theme->folder_path . '.' . $data;
         }
     }
-
 }
 
- if(!function_exists('contactMail')){
-    function contactMail($details){
+if (!function_exists('contactMail')) {
+    function contactMail($details)
+    {
         return Mail::to(env('MAIL_USERNAME'))->queue(new ContactMail($details));
     }
- }
+}
 
 if (!function_exists('attendanceCheck')) {
     function attendanceCheck($user_id, $type, $date)
@@ -71,54 +71,59 @@ if (!function_exists('Note')) {
 }
 
 
- if(!function_exists('contactMail')){
-    function contactMail($details){
+if (!function_exists('contactMail')) {
+    function contactMail($details)
+    {
         return MailSend::to('spn21@spondonit.com')->send(new ContactMail($details));
     }
- }
+}
 
 
 
-if(!function_exists('is_admin_user')){
-    function is_admin_user($id){
-        $authIdList=[1,2,3];
-        if(in_array($id,$authIdList)){
+if (!function_exists('is_admin_user')) {
+    function is_admin_user($id)
+    {
+        $authIdList = [1, 2, 3];
+        if (in_array($id, $authIdList)) {
             return true;
         }
         return false;
     }
- }
+}
 
-if(!function_exists('image_resize')){
-    function image_resize(){
-        $image=asset('public/uploads/blog/026649a94d244f70d1ce3b08a5a801dd.jpg');
+if (!function_exists('image_resize')) {
+    function image_resize()
+    {
+        $image = asset('public/uploads/blog/026649a94d244f70d1ce3b08a5a801dd.jpg');
         $img = Image::make('http://printgaraun.com/public/uploads/blog/026649a94d244f70d1ce3b08a5a801dd.jpg');
-        $resize=$img->resize(320, 200);
+        $resize = $img->resize(320, 200);
         return $img;
-
     }
- }
-if(!function_exists('selling_price')){
-    function selling_price ($amount = 0, $discount_type = 1, $discount_amount = 0){
+}
+if (!function_exists('selling_price')) {
+    function selling_price($amount = 0, $discount_type = 1, $discount_amount = 0)
+    {
         $discount = 0;
-        if($discount_type == 0){
-            $discount = ($amount/100) *$discount_amount;
-        }if($discount_type == 1){
+        if ($discount_type == 0) {
+            $discount = ($amount / 100) * $discount_amount;
+        }
+        if ($discount_type == 1) {
             $discount = $discount_amount;
         }
 
         $selling_price = $amount - $discount;
         return $selling_price;
-     }
+    }
 }
 
-if(!function_exists('tax_count')){
-    function tax_count($price=0 , $tax_amount=0, $tax_type=0){
+if (!function_exists('tax_count')) {
+    function tax_count($price = 0, $tax_amount = 0, $tax_type = 0)
+    {
         $tax = 0;
-        if($tax_type == 0){
-            $tax = ($price/100) * $tax_amount;
+        if ($tax_type == 0) {
+            $tax = ($price / 100) * $tax_amount;
         }
-        if($tax_type == 1){
+        if ($tax_type == 1) {
             $tax = $tax_amount;
         }
         return $tax;
@@ -190,7 +195,8 @@ if (!function_exists('menuManagerCheck')) {
 }
 
 if (!function_exists('asset_path')) {
-    function asset_path($path = null){
+    function asset_path($path = null)
+    {
         return $path;
     }
 }
@@ -201,7 +207,9 @@ function setEnv($name, $value)
     $path = base_path('.env');
     if (file_exists($path)) {
         file_put_contents($path, str_replace(
-            $name . '=' . env($name), $name . '=' . $value, file_get_contents($path)
+            $name . '=' . env($name),
+            $name . '=' . $value,
+            file_get_contents($path)
         ));
     }
 }
@@ -216,13 +224,14 @@ if (!function_exists('isRtl')) {
     }
 }
 
-if(!function_exists('getVar')){
+if (!function_exists('getVar')) {
     /*
      *  Used to get value-list json
      *  @return array
      */
 
-    function getVar($list) {
+    function getVar($list)
+    {
         $file = resource_path('var/' . $list . '.json');
 
         return (File::exists($file)) ? json_decode(file_get_contents($file), true) : [];
@@ -232,27 +241,25 @@ if (!function_exists('affiliateConfig')) {
     function affiliateConfig($key)
     {
         try {
-            if($key){
+            if ($key) {
                 if (Cache::has('affiliate_config')) {
                     $affiliate_configs =  Cache::get('affiliate_config');
                     return $affiliate_configs[$key];
-
                 } else {
                     Cache::forget('affiliate_config');
                     $datas = [];
                     foreach (\Modules\Affiliate\Entities\AffiliateConfiguration::get() as  $setting) {
                         $datas[$setting->key] = $setting->value;
                     }
-                    Cache::rememberForever('affiliate_config', function () use($datas) {
+                    Cache::rememberForever('affiliate_config', function () use ($datas) {
                         return $datas;
                     });
                     $affiliate_configs =  Cache::get('affiliate_config');
                     return $affiliate_configs[$key];
                 }
-            }else{
+            } else {
                 return false;
             }
-
         } catch (Exception $exception) {
             return false;
         }
@@ -262,13 +269,12 @@ if (!function_exists('isAffiliateUser')) {
     function isAffiliateUser()
     {
         try {
-            if(auth()->check()){
-               if(auth()->user()->affiliate_request ==1){
-                   return true;
-               }
+            if (auth()->check()) {
+                if (auth()->user()->affiliate_request == 1) {
+                    return true;
+                }
             }
             return false;
-
         } catch (Exception $exception) {
             return false;
         }
@@ -279,16 +285,15 @@ if (!function_exists('hasAffiliateAccess')) {
     function hasAffiliateAccess()
     {
         try {
-            if(auth()->check()){
-                if(auth()->user()->role->type == 'superadmin'){
+            if (auth()->check()) {
+                if (auth()->user()->role->type == 'superadmin') {
                     return true;
                 }
-                if(auth()->user()->affiliate_request ==1 && auth()->user()->accept_affiliate_request ==1){
+                if (auth()->user()->affiliate_request == 1 && auth()->user()->accept_affiliate_request == 1) {
                     return true;
                 }
             }
             return false;
-
         } catch (Exception $exception) {
             return false;
         }
@@ -299,17 +304,17 @@ if (!function_exists('getParentSellerId')) {
     function getParentSellerId()
     {
         $seller_id = 0;
-        if(auth()->check()){
+        if (auth()->check()) {
             if (auth()->user()->role->type == 'seller') {
-                if(auth()->user()->sub_seller->seller_id){
+                if (auth()->user()->sub_seller->seller_id) {
                     $seller_id = auth()->user()->sub_seller->seller_id;
-                }else{
+                } else {
                     $seller_id = auth()->id();
                 }
             } elseif (auth()->user()->role->type == "superadmin") {
                 $seller_id = auth()->id();
             } elseif (auth()->user()->role->type == "staff" || auth()->user()->role->type == "admin") {
-                $seller_id = User::whereHas('role', function($q){
+                $seller_id = User::whereHas('role', function ($q) {
                     return $q->where('type', 'superadmin');
                 })->first()->id;
             }
@@ -322,14 +327,14 @@ if (!function_exists('getParentSeller')) {
     function getParentSeller()
     {
         $seller = null;
-        if(auth()->check()){
+        if (auth()->check()) {
             if (auth()->user()->role->type == 'seller') {
-                if(auth()->user()->sub_seller->seller_id){
+                if (auth()->user()->sub_seller->seller_id) {
                     $seller = auth()->user()->sub_seller->seller;
-                }else{
+                } else {
                     $seller = auth()->user();
                 }
-            } 
+            }
         }
         return $seller;
     }
@@ -340,27 +345,25 @@ if (!function_exists('shippingConfig')) {
     function shippingConfig($key)
     {
         try {
-            if($key){
+            if ($key) {
                 if (Cache::has('shipping_config')) {
                     $configs =  Cache::get('shipping_config');
                     return $configs[$key];
-
                 } else {
                     Cache::forget('shipping_config');
                     $datas = [];
                     foreach (\Modules\Shipping\Entities\ShippingConfiguration::get() as  $setting) {
                         $datas[$setting->key] = $setting->value;
                     }
-                    Cache::rememberForever('shipping_config', function () use($datas) {
+                    Cache::rememberForever('shipping_config', function () use ($datas) {
                         return $datas;
                     });
                     $configs =  Cache::get('shipping_config');
                     return $configs[$key];
                 }
-            }else{
+            } else {
                 return false;
             }
-
         } catch (Exception $exception) {
             return false;
         }
@@ -371,18 +374,16 @@ if (!function_exists('sellerWiseShippingConfig')) {
     function sellerWiseShippingConfig($sellerId)
     {
         try {
-            if($sellerId){
-               $row =  \Modules\Shipping\Entities\ShippingConfiguration::where('seller_id',$sellerId)->first();
-               if($row){
-                   return collect($row);
-
-               }else{
-                   return null;
-               }
-            }else{
+            if ($sellerId) {
+                $row =  \Modules\Shipping\Entities\ShippingConfiguration::where('seller_id', $sellerId)->first();
+                if ($row) {
+                    return collect($row);
+                } else {
+                    return null;
+                }
+            } else {
                 return null;
             }
-
         } catch (Exception $exception) {
             return null;
         }
@@ -390,11 +391,12 @@ if (!function_exists('sellerWiseShippingConfig')) {
 }
 
 if (!function_exists('singleProductURL')) {
-    function singleProductURL($product, $seller = null){
-        if(isModuleActive('MultiVendor')){
-            return route('frontend.item.show',[$seller,$product]);
-        }else{
-            return route('frontend.item.show',$product);
+    function singleProductURL($seller, $product)
+    {
+        if (isModuleActive('MultiVendor')) {
+            return route('frontend.item.show', [$seller, $product]);
+        } else {
+            return route('frontend.item.show', $product);
         }
     }
 }
@@ -405,29 +407,28 @@ if (!function_exists('pickupLocationData')) {
 
         try {
             $user_id = getParentSellerId();
-            if($key){
-                $row = \Modules\Shipping\Entities\PickupLocation::where('is_set',1)->where('created_by',$user_id)->first();
-                if(!$row){
-                    $row = \Modules\Shipping\Entities\PickupLocation::where('created_by',$user_id)->first();
+            if ($key) {
+                $row = \Modules\Shipping\Entities\PickupLocation::where('is_set', 1)->where('created_by', $user_id)->first();
+                if (!$row) {
+                    $row = \Modules\Shipping\Entities\PickupLocation::where('created_by', $user_id)->first();
                 }
                 $data = [
-                    'id'=> $row->id,
-                    'pickup_location'=> $row->pickup_location,
-                    'name'=>$row->name,
-                    'email'=>$row->email,
-                    'phone'=>$row->phone,
-                    'address'=>$row->address,
-                    'address_2'=>$row->address_2,
-                    'city'=>$row->city->name,
-                    'state'=>$row->state->name,
-                    'country'=>$row->country->name,
-                    'pin_code'=>$row->pin_code,
+                    'id' => $row->id,
+                    'pickup_location' => $row->pickup_location,
+                    'name' => $row->name,
+                    'email' => $row->email,
+                    'phone' => $row->phone,
+                    'address' => $row->address,
+                    'address_2' => $row->address_2,
+                    'city' => $row->city->name,
+                    'state' => $row->state->name,
+                    'country' => $row->country->name,
+                    'pin_code' => $row->pin_code,
                 ];
                 return $data[$key];
-            }else{
+            } else {
                 return false;
             }
-
         } catch (Exception $exception) {
             return false;
         }
