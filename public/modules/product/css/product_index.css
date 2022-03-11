@@ -27,6 +27,7 @@
 .gallary_img_div {
     display: flex;
     grid-gap: 10px;
+    justify-content: center;
 }
 .gallary_img {
     display: flex;

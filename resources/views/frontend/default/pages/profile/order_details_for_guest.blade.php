@@ -30,7 +30,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-xl-8 col-md-7">
+            <div class="col-xl-9 col-md-7">
                 <div class="order_details">
                     <div class="single_order_part">
                         <div class="order_details_status">

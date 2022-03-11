@@ -11,7 +11,7 @@ table.table-borderless td, table.table-borderless th {
 .table_td_div {
     display: grid;
     grid-template-columns: 92px auto;
-    grid-gap: 10px;
+    grid-gap: 30px;
     color: #8f8f8f;
 }
 .email_tag{

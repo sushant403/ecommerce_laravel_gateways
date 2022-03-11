@@ -390,7 +390,7 @@ if (!function_exists('sellerWiseShippingConfig')) {
 }
 
 if (!function_exists('singleProductURL')) {
-    function singleProductURL($seller = null, $product){
+    function singleProductURL($product, $seller = null){
         if(isModuleActive('MultiVendor')){
             return route('frontend.item.show',[$seller,$product]);
         }else{

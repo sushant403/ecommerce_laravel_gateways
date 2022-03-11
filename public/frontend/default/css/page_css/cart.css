@@ -1,7 +1,7 @@
 /* line 1 checkout_v3.scss */
 .checkout_v3_area {
     display: grid;
-    grid-template-columns: auto 825px;
+    grid-template-columns: auto 580px;
 }
 
 @media only screen and (min-width: 991px) and (max-width: 1200px) {
@@ -16,7 +16,7 @@
 
     /* line 1 checkout_v3.scss */
     .checkout_v3_area {
-        grid-template-columns: auto 580px;
+        grid-template-columns: auto 490px;
     }
 }
 
