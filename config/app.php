@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'PrintGaraun'),
     'sync' => env('APP_SYNC', 'false'),
     'force_https' => env('FORCE_HTTPS', 'false'),
 
@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => env('TIME_ZONE', 'Asia/Dhaka'),
+    'timezone' => env('TIME_ZONE', 'Asia/Kathmandu'),
 
     /*
     |--------------------------------------------------------------------------
