@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 11, 2022 at 10:23 PM
+-- Generation Time: Mar 12, 2022 at 09:16 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `am_ecommerce`
+-- Database: `printgaraundev`
 --
 
 -- --------------------------------------------------------
@@ -164,7 +164,11 @@ CREATE TABLE `attributes` (
 --
 
 INSERT INTO `attributes` (`id`, `name`, `display_type`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Color', 'radio_button', 'Choose the products from the Defined Colors', 1, NULL, 1, '2018-11-04 20:27:26', '2022-03-11 18:20:01');
+(1, 'Color', 'radio_button', 'Choose from the Predefined Color for the product.', 1, NULL, 1, '2018-11-04 20:27:26', '2022-03-12 19:01:31'),
+(2, 'Corners', NULL, 'Choose the finishing Corner Style', 1, NULL, NULL, '2022-03-12 18:59:21', '2022-03-12 18:59:21'),
+(3, 'Finishes', NULL, 'Final FInish Texture', 1, NULL, NULL, '2022-03-12 19:02:41', '2022-03-12 19:02:41'),
+(4, 'Shape', NULL, 'Choose from different Shape of the product', 1, NULL, NULL, '2022-03-12 19:05:17', '2022-03-12 19:05:17'),
+(5, 'Size', NULL, 'Choose the finishing size or select default for later confirmation.', 1, NULL, NULL, '2022-03-12 19:08:11', '2022-03-12 19:08:11');
 
 -- --------------------------------------------------------
 
@@ -188,7 +192,30 @@ INSERT INTO `attribute_values` (`id`, `value`, `attribute_id`, `created_at`, `up
 (1, 'black', 1, '2022-03-06 21:36:07', '2022-03-06 21:36:07'),
 (2, 'red', 1, '2022-03-06 21:36:07', '2022-03-06 21:36:07'),
 (3, 'white', 1, '2022-03-06 21:36:07', '2022-03-06 21:36:07'),
-(4, 'yellow', 1, '2022-03-11 18:20:01', '2022-03-11 18:20:01');
+(4, 'yellow', 1, '2022-03-11 18:20:01', '2022-03-11 18:20:01'),
+(5, 'Standard', 2, '2022-03-12 18:59:21', NULL),
+(6, 'Rounded', 2, '2022-03-12 18:59:21', NULL),
+(7, '#38761d', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(8, '#c90076', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(9, '#2986cc', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(10, '#351c75', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(11, '#ff8200', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(12, 'Embossed Gloss', 3, '2022-03-12 19:02:41', NULL),
+(13, 'Foil Accent', 3, '2022-03-12 19:02:41', NULL),
+(14, 'No Finish', 3, '2022-03-12 19:02:41', NULL),
+(15, 'Rounded Square', 4, '2022-03-12 19:05:17', NULL),
+(16, 'Rounded Rectangle', 4, '2022-03-12 19:05:17', NULL),
+(17, 'Oval', 4, '2022-03-12 19:05:17', NULL),
+(18, 'Circle', 4, '2022-03-12 19:05:17', NULL),
+(19, 'Default', 5, '2022-03-12 19:08:11', NULL),
+(20, '1\" x 1\"', 5, '2022-03-12 19:08:11', NULL),
+(21, '2\" x 2\"', 5, '2022-03-12 19:08:11', NULL),
+(22, '3\" x 3\"', 5, '2022-03-12 19:08:11', NULL),
+(23, '3.5\" x 3.5\"', 5, '2022-03-12 19:08:11', NULL),
+(24, '4\" x 4\"', 5, '2022-03-12 19:08:11', NULL),
+(25, '4.5\" x 4.5\"', 5, '2022-03-12 19:08:11', NULL),
+(26, '5\" x 5\"', 5, '2022-03-12 19:08:11', NULL),
+(27, '5.5\" x 5.5\"', 5, '2022-03-12 19:08:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -410,7 +437,8 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `description`, `link`, `status`, `featured`, `meta_title`, `meta_description`, `sort_id`, `total_sale`, `avg_rating`, `slug`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'PrintGaraun', 'uploads/images/12-03-2022/622b9235cdf9e.png', '<p>Official Site of PrintGaraun.com where the genuine designing and printing is all it matters.</p>', 'https://printgaraun.com', 1, 1, 'PrintGaraun', 'Official Site of PrintGaraun.com where the genuine designing and printing is all it matters.', NULL, 0, 0.00, 'printgaraun', NULL, NULL, '2022-03-11 18:17:25', '2022-03-11 18:17:25');
+(1, 'PrintGaraun', 'uploads/images/12-03-2022/622b9235cdf9e.png', '<p>Official Site of PrintGaraun.com where the genuine designing and printing is all it matters.</p>', 'https://printgaraun.com', 1, 1, 'PrintGaraun', 'Official Site of PrintGaraun.com where the genuine designing and printing is all it matters.', NULL, 0, 0.00, 'printgaraun', NULL, NULL, '2022-03-11 18:17:25', '2022-03-11 18:17:25'),
+(2, 'Vistaprint', 'uploads/images/13-03-2022/622cf045cb6b2.png', '<p>Vistaprint</p>', 'https://www.vistaprint.com/', 1, 1, 'Vistaprint', 'Vistaprint', NULL, 0, 0.00, 'vistaprint', NULL, NULL, '2022-03-12 19:11:01', '2022-03-12 19:11:01');
 
 -- --------------------------------------------------------
 
@@ -586,7 +614,8 @@ CREATE TABLE `carts` (
 
 INSERT INTO `carts` (`id`, `user_id`, `session_id`, `seller_id`, `product_type`, `product_id`, `qty`, `price`, `total_price`, `sku`, `is_select`, `shipping_method_id`, `created_at`, `updated_at`) VALUES
 (1, 1, NULL, 1, 'product', 1, 2, 1250, 2500, NULL, 1, 0, '2022-03-11 19:41:57', '2022-03-11 21:37:46'),
-(2, 1, NULL, 1, 'product', 2, 2, 1250, 2500, NULL, 1, 0, '2022-03-11 20:08:32', '2022-03-11 21:48:52');
+(2, 1, NULL, 1, 'product', 2, 2, 1250, 2500, NULL, 1, 0, '2022-03-11 20:08:32', '2022-03-11 21:48:52'),
+(3, 1, NULL, 1, 'product', 4, 1, 750, 750, NULL, 1, 0, '2022-03-12 19:48:38', '2022-03-12 19:48:38');
 
 -- --------------------------------------------------------
 
@@ -716,7 +745,11 @@ INSERT INTO `category_product` (`id`, `category_id`, `product_id`, `created_at`,
 (1, 1, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
 (2, 10, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
 (3, 1, 2, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
-(4, 10, 2, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(4, 10, 2, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(5, 1, 3, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(6, 17, 3, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(7, 2, 4, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(8, 14, 4, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -48774,7 +48807,12 @@ INSERT INTO `colors` (`id`, `attribute_value_id`, `name`, `created_at`, `updated
 (1, 1, 'Black', '2022-03-06 21:36:08', '2022-03-06 21:36:08'),
 (2, 2, 'Red', '2022-03-06 21:36:08', '2022-03-06 21:36:08'),
 (3, 3, 'White', '2022-03-06 21:36:08', '2022-03-06 21:36:08'),
-(4, 4, 'Yellow', '2022-03-11 18:20:01', '2022-03-11 18:20:01');
+(4, 4, 'Yellow', '2022-03-11 18:20:01', '2022-03-11 18:20:01'),
+(5, 7, 'Green', '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(6, 8, 'Pink', '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(7, 9, 'Blue', '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(8, 10, 'Purple', '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(9, 11, 'Orange', '2022-03-12 19:01:07', '2022-03-12 19:01:07');
 
 -- --------------------------------------------------------
 
@@ -50020,7 +50058,7 @@ CREATE TABLE `general_settings` (
 --
 
 INSERT INTO `general_settings` (`id`, `site_title`, `company_name`, `country_id`, `state_id`, `city_id`, `country_name`, `company_info`, `file_supported`, `zip_code`, `vat_number`, `address`, `phone`, `email`, `currency`, `currency_symbol`, `promotionSetting`, `logo`, `favicon`, `shop_link_banner`, `system_version`, `active_status`, `currency_code`, `language_name`, `system_purchase_code`, `system_activated_date`, `envato_user`, `envato_item_id`, `system_domain`, `copyright_text`, `website_btn`, `dashboard_btn`, `report_btn`, `style_btn`, `ltl_rtl_btn`, `lang_btn`, `website_url`, `ttl_rtl`, `phone_number_privacy`, `time_zone`, `language_code`, `date_format_id`, `software_version`, `mail_signature`, `mail_header`, `mail_footer`, `mail_protocol`, `preloader`, `email_template`, `up_sale_product_display_title`, `cross_sale_product_display_title`, `footer_about_title`, `footer_about_description`, `footer_copy_right`, `footer_section_one_title`, `footer_section_two_title`, `footer_section_three_title`, `maintenance_title`, `maintenance_subtitle`, `maintenance_banner`, `maintenance_status`, `auto_approve_wallet_status`, `auto_approve_seller`, `auto_approve_product_review`, `auto_approve_seller_review`, `track_order_by_secret_id`, `track_order_by_phone`, `facebook_client_id`, `facebook_client_secret`, `facebook_status`, `google_client_id`, `google_client_secret`, `google_status`, `twitter_client_id`, `twitter_client_secret`, `twitter_status`, `linkedin_client_id`, `linkedin_client_secret`, `linkedin_status`, `multi_category`, `commission_by`, `currency_symbol_position`, `decimal_limit`, `default_country`, `default_state`, `guest_checkout`, `meta_site_title`, `meta_tags`, `meta_description`, `created_at`, `updated_at`) VALUES
-(1, 'PrintGaraun - Nepal Online Printing | Business Cards, Arts and More', 'PrintGaraun', 153, 2566, 29791, 'BD', 'PrintGaraun.com', 'pdf,txt', '44600', NULL, 'Balkumari, Near Kathford College', '+9779801180294', 'sales@printgaraun.com', '72', '₨', 0, 'uploads/settings/6227acd34031a.png', 'uploads/settings/6227acd2f0da9.png', 'frontend/default/img/breadcrumb_bg.png', '1.9', 1, 'NPR', 'en', NULL, '2022-03-07', NULL, NULL, 'https://amcart19.test', 'Copyright © 2019. All rights reserved', 1, 1, 1, 1, 1, 1, NULL, 2, 1, 'Asia/Kathmandu', 'en', '1', '1.9', 'Mail signature', 'Mail Header', 'Mail footer', 'smtp', 'AmazCart', '<div style=\"font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-align: center; background-color: rgb(152, 62, 81); padding: 30px; border-top-left-radius: 3px; border-top-right-radius: 3px; margin: 0px;\"><h1 style=\"margin: 20px 0px 10px; font-size: 36px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: inherit;\">Template</h1></div><div style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; padding: 20px;\"><p style=\"color: rgb(85, 85, 85);\">Hello {USER_FIRST_NAME}<br><br>An account has been created for you.</p><p style=\"color: rgb(85, 85, 85);\">Please use the following info to login your dashboard:</p><p style=\"color: rgb(85, 85, 85);\">{ORDER_TRACKING_NUMBER}<br></p><hr style=\"box-sizing: content-box; margin-top: 20px; margin-bottom: 20px; border-top-color: rgb(238, 238, 238);\"><p style=\"color: rgb(85, 85, 85);\"><br></p><p style=\"color: rgb(85, 85, 85);\">{EMAIL_SIGNATURE}</p><p style=\"color: rgb(85, 85, 85);\"><br></p></div>\r\n<div style=\"font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-align: center; background-color: rgb(152, 62, 81); padding: 30px; border-top-left-radius: 3px; border-top-right-radius: 3px; margin: 0px;\"><h1 style=\"margin: 20px 0px 10px; font-size: 36px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: inherit;\">Template</h1></div><div style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; padding: 20px;\"></div>', 'Up Sale Products', 'Cross Sale Products', 'About', 'We are an industry-leading company that values honesty, integrity, and efficiency. Building quality products and caring for the users are what made us stand out since the beginning. We are stunning, functional, ready to go, and well documented.', 'Copyright © 2019 - 2022 <b>PrintGaraun.com</b>. All rights reserved.', 'Company', 'My Account', 'Services', 'Under Maintenance', 'The Page is now Under Maintenance. Thank your for your patience.', 'uploads/settings/622b9b4417385.png', 0, 0, 1, 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, 0, 1, 1, 'left_with_space', 2, 153, 2566, 1, 'PrintGaraun', 'printgaraun,printing,service,printgaraun.com', 'We are an industry-leading company that values honesty, integrity, and efficiency. Building quality products and caring for the users are what made us stand out since the beginning.', NULL, '2022-03-11 18:56:04');
+(1, 'PrintGaraun - Nepal Online Printing | Business Cards, Arts and More', 'PrintGaraun', 153, 2566, 29791, 'BD', 'PrintGaraun.com', 'pdf,txt', '44600', NULL, 'Balkumari, Near Kathford College', '+9779801180294', 'sales@printgaraun.com', '72', '₨', 0, 'uploads/settings/6227acd34031a.png', 'uploads/settings/6227acd2f0da9.png', 'frontend/default/img/breadcrumb_bg.png', '1.9', 1, 'NPR', 'en', NULL, '2022-03-07', NULL, NULL, 'https://amcart19.test', 'Copyright © 2019. All rights reserved', 1, 1, 1, 1, 1, 1, NULL, 2, 1, 'Asia/Kathmandu', 'en', '1', '1.9', 'Mail signature', 'Mail Header', 'Mail footer', 'smtp', 'PrintGaraun', '<div style=\"font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-align: center; background-color: rgb(152, 62, 81); padding: 30px; border-top-left-radius: 3px; border-top-right-radius: 3px; margin: 0px;\"><h1 style=\"margin: 20px 0px 10px; font-size: 36px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: inherit;\">Template</h1></div><div style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; padding: 20px;\"><p style=\"color: rgb(85, 85, 85);\">Hello {USER_FIRST_NAME}<br><br>An account has been created for you.</p><p style=\"color: rgb(85, 85, 85);\">Please use the following info to login your dashboard:</p><p style=\"color: rgb(85, 85, 85);\">{ORDER_TRACKING_NUMBER}<br></p><hr style=\"box-sizing: content-box; margin-top: 20px; margin-bottom: 20px; border-top-color: rgb(238, 238, 238);\"><p style=\"color: rgb(85, 85, 85);\"><br></p><p style=\"color: rgb(85, 85, 85);\">{EMAIL_SIGNATURE}</p><p style=\"color: rgb(85, 85, 85);\"><br></p></div>\r\n<div style=\"font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); text-align: center; background-color: rgb(152, 62, 81); padding: 30px; border-top-left-radius: 3px; border-top-right-radius: 3px; margin: 0px;\"><h1 style=\"margin: 20px 0px 10px; font-size: 36px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-weight: 500; line-height: 1.1; color: inherit;\">Template</h1></div><div style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; padding: 20px;\"></div>', 'Up Sale Products', 'Cross Sale Products', 'About', 'We are an industry-leading company that values honesty, integrity, and efficiency. Building quality products and caring for the users are what made us stand out since the beginning. We are stunning, functional, ready to go, and well documented.', 'Copyright © 2019 - 2022 <b>PrintGaraun.com</b>. All rights reserved.', 'Company', 'My Account', 'Services', 'Under Maintenance', 'The Page is now Under Maintenance. Thank your for your patience.', 'uploads/settings/622b9b4417385.png', 0, 0, 1, 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, 1, NULL, NULL, 0, NULL, NULL, 0, 1, 1, 'left_with_space', 2, 153, 2566, 1, 'PrintGaraun', 'printgaraun,printing,service,printgaraun.com', 'We are an industry-leading company that values honesty, integrity, and efficiency. Building quality products and caring for the users are what made us stand out since the beginning.', NULL, '2022-03-11 18:56:04');
 
 -- --------------------------------------------------------
 
@@ -50211,7 +50249,7 @@ CREATE TABLE `headers` (
 --
 
 INSERT INTO `headers` (`id`, `name`, `type`, `column_size`, `is_enable`, `is_full_row`, `created_at`, `updated_at`) VALUES
-(1, 'Slider Section', 'slider', '8 column', 1, 0, '2022-03-06 21:36:12', '2022-03-06 21:36:12'),
+(1, 'Slider Section', 'slider', '12 column', 1, 0, '2022-03-06 21:36:12', '2022-03-12 20:40:17'),
 (2, 'Category Section', 'category', '4 column', 1, 0, '2022-03-06 21:36:12', '2022-03-06 21:36:12'),
 (3, 'Product Section', 'product', '8 column', 1, 0, '2022-03-06 21:36:12', '2022-03-06 21:36:12'),
 (4, 'New User Zone Section', 'new_user_zone', '4 column', 1, 0, '2022-03-06 21:36:12', '2022-03-06 21:36:12');
@@ -50232,6 +50270,14 @@ CREATE TABLE `header_category_panels` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `header_category_panels`
+--
+
+INSERT INTO `header_category_panels` (`id`, `title`, `category_id`, `status`, `is_newtab`, `position`, `created_at`, `updated_at`) VALUES
+(2, 'New Arrivals', 9, 1, 0, 986754, '2022-03-12 11:12:03', '2022-03-12 11:12:03'),
+(4, 'Business Essentials', 1, 1, 0, 986754, '2022-03-12 11:12:03', '2022-03-12 11:12:03');
 
 -- --------------------------------------------------------
 
@@ -50273,6 +50319,16 @@ CREATE TABLE `header_product_panels` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `header_product_panels`
+--
+
+INSERT INTO `header_product_panels` (`id`, `title`, `product_id`, `status`, `is_newtab`, `position`, `created_at`, `updated_at`) VALUES
+(3, 'Mounted Wall Art', 4, 1, 0, 986754, '2022-03-12 20:31:11', '2022-03-12 20:31:11'),
+(4, 'Forex Sticker', 3, 1, 0, 986754, '2022-03-12 20:31:11', '2022-03-12 20:31:11'),
+(5, 'Canvas Prints', 2, 1, 0, 986754, '2022-03-12 20:31:11', '2022-03-12 20:31:11'),
+(6, 'Business Card', 1, 1, 0, 986754, '2022-03-12 20:31:11', '2022-03-12 20:31:11');
+
 -- --------------------------------------------------------
 
 --
@@ -50292,6 +50348,13 @@ CREATE TABLE `header_slider_panels` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `header_slider_panels`
+--
+
+INSERT INTO `header_slider_panels` (`id`, `name`, `url`, `data_type`, `data_id`, `slider_image`, `status`, `is_newtab`, `position`, `created_at`, `updated_at`) VALUES
+(3, 'PrintGaraun', NULL, 'product', 3, 'uploads/images/13-03-2022/622d0500bcef6.webp', 1, 0, 598776, '2022-03-12 20:39:29', '2022-03-12 20:39:29');
 
 -- --------------------------------------------------------
 
@@ -50420,7 +50483,7 @@ CREATE TABLE `infix_module_managers` (
 --
 
 INSERT INTO `infix_module_managers` (`id`, `name`, `email`, `notes`, `version`, `update_url`, `purchase_code`, `installed_domain`, `checksum`, `activated_date`, `created_at`, `updated_at`) VALUES
-(1, 'MultiVendor', 'support@spondonit.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-06 21:36:05', '2022-03-06 21:36:05');
+(1, 'MultiVendor', 'support@printgaraun.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-03-06 21:36:05', '2022-03-06 21:36:05');
 
 -- --------------------------------------------------------
 
@@ -50787,7 +50850,49 @@ INSERT INTO `log_activity` (`id`, `subject`, `type`, `url`, `method`, `ip`, `log
 (89, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:20:22', '2022-03-11 22:20:22'),
 (90, 'payment gateway credential update successful.', 1, 'https://printgaraun.test/paymentgateway/configuration', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:10', '2022-03-11 22:21:10'),
 (91, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:27', '2022-03-11 22:21:27'),
-(92, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:34', '2022-03-11 22:21:34');
+(92, 'payment activate successful.', 1, 'https://printgaraun.test/payment-gateway-activation', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-11 22:21:34', '2022-03-11 22:21:34'),
+(93, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 10:49:28', '2022-03-12 10:49:28'),
+(94, 'Menu updated.', 1, 'http://printgaraun.test/menu/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:02:53', '2022-03-12 11:02:53'),
+(95, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:05:15', '2022-03-12 11:05:15'),
+(96, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:05:35', '2022-03-12 11:05:35'),
+(97, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:05:58', '2022-03-12 11:05:58'),
+(98, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:06:19', '2022-03-12 11:06:19'),
+(99, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:06:39', '2022-03-12 11:06:39'),
+(100, 'menu status changed.', 1, 'http://printgaraun.test/menu/manage/status', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:06:52', '2022-03-12 11:06:52'),
+(101, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:07:00', '2022-03-12 11:07:00'),
+(102, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:07:18', '2022-03-12 11:07:18'),
+(103, 'Menu added.', 1, 'http://printgaraun.test/menu/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:08:10', '2022-03-12 11:08:10'),
+(104, 'Menu added.', 1, 'http://printgaraun.test/menu/setup/add-menu', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(105, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:12:03', '2022-03-12 11:12:03'),
+(106, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:12:42', '2022-03-12 11:12:42'),
+(107, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:14:48', '2022-03-12 11:14:48'),
+(108, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 11:47:07', '2022-03-12 11:47:07'),
+(109, 'Attribute Added.', 1, 'http://printgaraun.test/products/attribute-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 18:59:21', '2022-03-12 18:59:21'),
+(110, 'Attribute Updated.', 1, 'http://printgaraun.test/products/attribute-list/1/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:01:07', '2022-03-12 19:01:07'),
+(111, 'Attribute Updated.', 1, 'http://printgaraun.test/products/attribute-list/1/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:01:31', '2022-03-12 19:01:31'),
+(112, 'Attribute Added.', 1, 'http://printgaraun.test/products/attribute-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:02:41', '2022-03-12 19:02:41'),
+(113, 'Attribute Added.', 1, 'http://printgaraun.test/products/attribute-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:05:17', '2022-03-12 19:05:17'),
+(114, 'Attribute Added.', 1, 'http://printgaraun.test/products/attribute-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:08:11', '2022-03-12 19:08:11'),
+(115, 'Units added.', 1, 'http://printgaraun.test/products/unit-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:08:56', '2022-03-12 19:08:56'),
+(116, 'Brand Added.', 1, 'http://printgaraun.test/products/brands-store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:11:01', '2022-03-12 19:11:01'),
+(117, 'product upload successful.', 1, 'http://printgaraun.test/products/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:47:07', '2022-03-12 19:47:07'),
+(118, 'cart store successful.', 1, 'http://printgaraun.test/cart/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:48:38', '2022-03-12 19:48:38'),
+(119, 'Product updated.', 1, 'http://printgaraun.test/products/update/2', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:50:55', '2022-03-12 19:50:55'),
+(120, 'product upload successful.', 1, 'http://printgaraun.test/products/store', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(121, 'Category Updated.', 1, 'http://printgaraun.test/products/category/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:02:15', '2022-03-12 20:02:15'),
+(122, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:30:03', '2022-03-12 20:30:03'),
+(123, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:30:59', '2022-03-12 20:30:59'),
+(124, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:31:03', '2022-03-12 20:31:03'),
+(125, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:31:11', '2022-03-12 20:31:11'),
+(126, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:39:29', '2022-03-12 20:39:29'),
+(127, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:39:34', '2022-03-12 20:39:34'),
+(128, 'header update successful.', 1, 'http://printgaraun.test/appearance/headers/update', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:40:17', '2022-03-12 20:40:17'),
+(129, 'element added successful.', 1, 'http://printgaraun.test/appearance/headers/setup/add-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 20:54:05', '2022-03-12 20:54:05'),
+(130, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 21:01:18', '2022-03-12 21:01:18'),
+(131, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 21:03:21', '2022-03-12 21:03:21'),
+(132, 'element deleted successful.', 1, 'http://printgaraun.test/appearance/headers/setup/delete-element', 'POST', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 21:03:28', '2022-03-12 21:03:28'),
+(133, 'Utility Operation Done.', 1, 'http://printgaraun.test/utilities?utilities=clear_log', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 21:12:42', '2022-03-12 21:12:42'),
+(134, 'Utility Operation Done.', 1, 'http://printgaraun.test/utilities?utilities=optimize_clear', 'GET', '127.0.0.1', 0, NULL, NULL, 'Chrome-99.0.4844-Blink-Windows 10-', 1, '2022-03-12 21:12:52', '2022-03-12 21:12:52');
 
 -- --------------------------------------------------------
 
@@ -50851,7 +50956,16 @@ CREATE TABLE `menus` (
 
 INSERT INTO `menus` (`id`, `name`, `slug`, `icon`, `menu_type`, `menu_position`, `status`, `has_parent`, `order_by`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'Top Navbar left menu', 'top-navbar-left-menu', NULL, 'normal_menu', 'top_navbar', 1, NULL, 1, 1, 1, '2022-03-06 21:36:12', '2022-03-11 18:46:32'),
-(2, 'Top Navbar right menu', 'top-navbar-right-menu', NULL, 'normal_menu', 'top_navbar', 1, NULL, 2, 1, 1, '2022-03-06 21:36:12', '2022-03-11 18:46:00');
+(2, 'Top Navbar right menu', 'top-navbar-right-menu', NULL, 'normal_menu', 'top_navbar', 1, NULL, 2, 1, 1, '2022-03-06 21:36:12', '2022-03-11 18:46:00'),
+(3, 'All Products', 'all-products', 'fas fa-campground', 'multi_mega_menu', 'main_menu', 1, NULL, 865435, 1, 1, '2022-03-12 10:49:27', '2022-03-12 11:02:53'),
+(4, 'Business Essentials', 'business-essentials', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:05:15', '2022-03-12 11:09:09'),
+(5, 'Gifts, Photo Print & Wall Art', 'gifts-photo-print--wall-art', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:05:35', '2022-03-12 11:09:09'),
+(6, 'Board, Signange & Lables', 'board-signange--lables', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:05:58', '2022-03-12 11:09:09'),
+(7, 'Events and Celebration', 'events-and-celebration', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:06:19', '2022-03-12 11:09:09'),
+(8, 'Clothing and Appearls', 'clothing-and-appearls', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:06:39', '2022-03-12 11:09:09'),
+(9, 'Interiors and Furnitre', 'interiors-and-furnitre', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:07:00', '2022-03-12 11:09:09'),
+(10, 'Merchandise', 'merchandise', NULL, 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:07:18', '2022-03-12 11:09:09'),
+(11, 'New Arrivals', 'new-arrivals', 'fas fa-braille', 'mega_menu', 'main_menu', 1, 1, 865435, 1, 1, '2022-03-12 11:08:10', '2022-03-12 11:09:09');
 
 -- --------------------------------------------------------
 
@@ -50869,6 +50983,20 @@ CREATE TABLE `menu_columns` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menu_columns`
+--
+
+INSERT INTO `menu_columns` (`id`, `menu_id`, `column`, `size`, `parent_id`, `position`, `created_at`, `updated_at`) VALUES
+(1, 4, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:05:15', '2022-03-12 11:05:15'),
+(2, 5, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:05:35', '2022-03-12 11:05:35'),
+(3, 6, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:05:58', '2022-03-12 11:05:58'),
+(4, 7, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:06:19', '2022-03-12 11:06:19'),
+(5, 8, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:06:39', '2022-03-12 11:06:39'),
+(6, 9, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:07:00', '2022-03-12 11:07:00'),
+(7, 10, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:07:18', '2022-03-12 11:07:18'),
+(8, 11, 'Column 1', '1/3', NULL, 0, '2022-03-12 11:08:10', '2022-03-12 11:08:10');
 
 -- --------------------------------------------------------
 
@@ -51255,6 +51383,20 @@ CREATE TABLE `multi_mega_menus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `multi_mega_menus`
+--
+
+INSERT INTO `multi_mega_menus` (`id`, `title`, `multi_mega_menu_id`, `menu_id`, `position`, `is_newtab`, `created_at`, `updated_at`) VALUES
+(1, 'New Arrivals', 3, 11, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(2, 'Merchandise', 3, 10, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(3, 'Interiors and Furnitre', 3, 9, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(4, 'Clothing and Appearls', 3, 8, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(5, 'Events and Celebration', 3, 7, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(6, 'Board, Signange & Lables', 3, 6, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(7, 'Gifts, Photo Print & Wall Art', 3, 5, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09'),
+(8, 'Business Essentials', 3, 4, 768989, 0, '2022-03-12 11:09:09', '2022-03-12 11:09:09');
 
 -- --------------------------------------------------------
 
@@ -52363,7 +52505,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `product_name`, `product_type`, `unit_type_id`, `brand_id`, `thumbnail_image_source`, `barcode_type`, `model_number`, `shipping_type`, `shipping_cost`, `discount_type`, `discount`, `tax_type`, `gst_group_id`, `tax`, `pdf`, `video_provider`, `video_link`, `description`, `specification`, `minimum_order_qty`, `max_order_qty`, `meta_title`, `meta_description`, `meta_image`, `is_physical`, `is_approved`, `status`, `display_in_details`, `requested_by`, `created_by`, `slug`, `updated_by`, `stock_manage`, `created_at`, `updated_at`) VALUES
 (1, 'Business Card', 1, 1, 1, 'uploads/images/12-03-2022/622ba53643491.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Set yourself apart with smoothed out, rounded corners.</h2></div><div class=\"text-color-standard\"><ul><li>Quarter-inch rounded corners</li><li>Fit perfectly in any standard holder or wallet</li><li>Available with most paper stocks</li><li>3 paper thicknesses: standard (14pt), premium (16pt) or premium plus (18pt)</li></ul><p><br></p><p><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/S001398003/BCMX402-bc-roundedCorner-overview_001\" style=\"width: 100%;\"><br></p><ul><li><br></li></ul><p>Rounded corner business cards have a look and feel that’s hard to miss. And the attention-grabbing shape helps keep your company top of mind.</p><p>Rounded corners are available with most of our great paper stocks, with lots more customization options, too. You can have square business cards with rounded corners or complete your design with our embossed gloss or foil accents. The shape also works well with the soft edges of many social media logos, so check out&nbsp;<a href=\"https://www.vistaprint.com/hub/social-media-icons-on-business-cards\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">how to add social media icons to business cards</a>.</p><p>Need more than 10,000? Click&nbsp;<a href=\"https://pages.vistaprintcorporate.com/business-cards-quote.html?utm_source=Vistaprint&amp;utm_medium=Form&amp;utm_campaign=Vistaprint_Form_ProductRequest_Rounded_Business_Cards&amp;utm_content=Rounded_Business_Cards\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">here</a>&nbsp;to submit a request.</p><p>Looking for ideas? Take a look at some of our favorite&nbsp;<a href=\"https://www.vistaprint.com/hub/business-card-examples\" style=\"background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border: 0px; color: var(--visage-link-font-color); cursor: pointer; display: inline-block; font-family: inherit; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px; text-align: inherit; text-decoration: var(--visage-link-text-decoration);\">business card examples</a>.</p><p><br></p></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"></div></div>', '<div class=\"col-7 col-sm-12 col-vertically-center\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 496.594px; align-self: center; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"\" style=\"\"><div class=\"\" style=\"display: flex; justify-content: space-around;\"><img src=\"https://rendering.documents.cimpress.io/preview?width=980&amp;instructions_uri=https%3a%2f%2fuds.documents.cimpress.io%3a443%2fv2%2ftransient%2fprdSpecSvc%3fdocument%3dhZDBboMwDIZfpfJpk1oI0E6UWy%252bVdl2107RDCKZ4CgQloWuL%252bu5zoJ200xRFST7%252fdn57hBNaR6aDAtJIwBIqo4YWOw%252fFCG6wtVTooPgYoZMtsmpvDQeX8E2Vb%252fi9jZKtahk0SMeG02ATZflEPJ79zqKc83vjyE8%252fjXBmmZg0l9%252fbvwVvjIylK%252f8v9U7TsZt9guIDLWdwL57U32BLVaXx7mZPqKvZTs1lDnQNLaXpog8tBbSXLelgamdJ6js8%252bIsOws7YdoKK4Vz%252bIGtchCYnqo1lZo%252flUyrEMhUZ7%252fUz3D6nNRd7w2kSxl7erWZ1433vijgOMRc9xu8iRW1v0bmITHxKYvtII3SxkFmZ1KVc5bV8Wa0zTFa5ynAlRZLLDZZ5shFxP5SaXIMVW%252but%252bUIVxv9aQdENWt9%252bAA%253d%253d%26type%3dpreview&amp;scene=https%3a%2f%2fscenes.documents.cimpress.io%3a443%2fv3%2ftransient%3fdata%3dlZJRS8MwEMe%252fyrgnhQjt1pXaxw2mIk7nRBDxIW0yGxuTkVwcdfS7e6mI%252bjDBhzzc%252f3%252f53eVye9gpgQ2Up0XCwDd2twhaz7SUAkp0QTLYOitCjVDuwbcBSphfXJ3keb5aXiYPwKJ4z53ilZY%252bJi2UUZ6IsLRGkj%252fjdeuViCbMNDctaeuGbyXFa%252bRGcCdImltnpItJtzYYIcXoS2Fw16i6NdL731fWofLoOEbSmbbedyTefLY7unZKGuSorCH73Dr1binWQyljZI2xBIH8d6urwA0q7EhJkwT6noHm3dDV4x6wG3q2b9KRGl9ug6ujhE69xhidbWWcQW21dWS45%252boom7A0L9h4nB1TjrCIcbYbrr2kAn9hq%252bEbDnEJyApW%252fBfq%252bUYeZKbZlKXThM7kJzcuQt8%252fDbvwQpMbZmpoUfoP\" class=\"fluid-image p-6 design-specs-image note-float-right\" style=\"max-width: 100%; width: 100%; max-height: 500px; margin-right: auto; margin-left: auto; display: block; padding: 32px !important; float: right;\"></div><div class=\"\" style=\"display: flex; justify-content: space-around;\"><br></div></div></div><div class=\"col-5 col-sm-12 col-vertically-center\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 354.719px; align-self: center; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.62\" x 2.12\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">91.9 x 53.8 mm</p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.5\" x 2\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">88.9 x 50.8 mm</p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Safety Area</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.38\" x 1.88\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">85.9 x 47.8 mm</p></div></div></div></div>', 1, 100, 'Rounded Corner Business Cards', 'Rounded corner business cards stand out with a modern, memorable look. Lose the corners to get an edge.', 'uploads/images/12-03-2022/622ba53705268.png', 1, 1, 1, 1, 1, 1, 'business-card', 1, '1', '2022-03-11 19:38:31', '2022-03-11 19:41:44'),
-(2, 'Tote-Bag-2203450423', 1, 1, 1, 'uploads/images/12-03-2022/622bab9f6bef4.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"box-sizing: border-box; color: var(--visage-font-heading-color,inherit); font-family: var(--visage-font-heading-family, inherit); font-weight: 900; margin-bottom: 0px !important; margin-top: 0px; overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Share your brand on the go with a versatile custom tote bag.</h2><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\"><div class=\"hidden-xs hidden-sm\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"></div><div class=\"text-color-standard\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"><ul><li>Open main compartment with easy access</li><li>100% cotton canvas</li><li>Double carry handles</li><li>Print your design on both sides of the bag</li></ul><p><br></p><p><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/S001377893/Classic-Cotton-Tote-Bag-Small-Overview-Tile-001\" style=\"width: 693.802px;\"><br></p><ul><li><br></li></ul><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Decoration:</span>&nbsp;Full-Color Print</p><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Care Instructions:</span>&nbsp;To keep your printed design looking bold, washing is not recommended.</p><p>The classic cotton tote bag is a go-to favorite for event giveaways and promotional packs. Easy to design and lightweight, these personalized tote bags won’t weigh you down when traveling for a trade show, conference or industry event. So, next time you need a big-batch giveaway, provide something people will regularly use that creates a positive image of your business.</p><p>To make this classic tote bag your own, upload your logo to preview how it looks in our interactive design studio. From there, it’s easy to add additional text and edit the color and style. And if you need any help or a second opinion along the way, our design experts are on hand to support you.</p></div></h2></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"></div></div>', '<div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p></div></div></div>', 1, 100, 'Carry your logo around town with our practical, customizable totes.', 'Carry your logo around town with our practical, customizable totes.', 'uploads/images/12-03-2022/622baba03abef.png', 1, 1, 1, 1, 1, 1, 'tote-bag-2203450423', NULL, '0', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(2, 'Canvas Prints', 1, 1, 1, 'uploads/images/12-03-2022/622bab9f6bef4.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"box-sizing: border-box; color: var(--visage-font-heading-color,inherit); font-family: var(--visage-font-heading-family, inherit); font-weight: 900; margin-bottom: 0px !important; margin-top: 0px; overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Share your brand on the go with a versatile custom tote bag.</h2><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\"><div class=\"hidden-xs hidden-sm\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"></div><div class=\"text-color-standard\" style=\"color: rgb(0, 0, 0); font-weight: 400; letter-spacing: -0.18px;\"><ul><li>Open main compartment with easy access</li><li>100% cotton canvas</li><li>Double carry handles</li><li>Print your design on both sides of the bag</li></ul><p><br></p><p><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/S001377893/Classic-Cotton-Tote-Bag-Small-Overview-Tile-001\" style=\"width: 693.802px;\"><br></p><ul><li><br></li></ul><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Decoration:</span>&nbsp;Full-Color Print</p><p><span style=\"font-weight: var(--visage-strong-font-weight,bold);\">Care Instructions:</span>&nbsp;To keep your printed design looking bold, washing is not recommended.</p><p>The classic cotton tote bag is a go-to favorite for event giveaways and promotional packs. Easy to design and lightweight, these personalized tote bags won’t weigh you down when traveling for a trade show, conference or industry event. So, next time you need a big-batch giveaway, provide something people will regularly use that creates a positive image of your business.</p><p>To make this classic tote bag your own, upload your logo to preview how it looks in our interactive design studio. From there, it’s easy to add additional text and edit the color and style. And if you need any help or a second opinion along the way, our design experts are on hand to support you.</p></div></h2></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"></div></div>', '<div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">8\" x 8\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">203.2 x 203.2 mm</p></div></div></div>', 1, 100, 'Carry your logo around town with our practical, customizable totes.', 'Carry your logo around town with our practical, customizable totes.', 'uploads/images/12-03-2022/622baba03abef.png', 1, 1, 1, 1, 1, 1, 'tote-bag-2203450423', 1, '0', '2022-03-11 20:05:52', '2022-03-12 19:50:55'),
+(3, 'Forex Sticker', 2, 1, 2, 'uploads/images/13-03-2022/622cf8b92954c.jpeg', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"hidden-xs hidden-sm\" style=\"font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Make an impression that sticks with business card stickers.</h2></div><div class=\"text-color-standard\" style=\"font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><ul><li>A fraction smaller than a business card</li><li>Adhesive backing</li><li>Vivid, full-color printing</li><li>Quantities from 10 to 2000</li><li><br></li></ul><p>Looking for a new way to get noticed by customers? Business card stickers are great for day-to-day networking, and a quick and easy option at events or conferences. Attach them to the top of your business proposals, or peel and stick them onto files, folders and packages to add a professional touch. Start by choosing a template or upload your own. Then, add your logo, contact information, text and more to make it your own.</p></div>', '<div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.54\" x 2.05\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">90 x 52 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.43\" x 1.93\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">87 x 49 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Safety Area</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.31\" x 1.81\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">84 x 46 mm</p></div></div></div>', 1, 5000, 'Forex Sticker', 'Stick your contact info onto folders, packages and more. Self-adhesive and easy to peel', NULL, 1, 1, 1, 1, 1, 1, 'forex-sticker', NULL, '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 'Mounted Wall Art', 2, 1, 1, 'uploads/images/13-03-2022/622cfb192cc71.png', 'C39', NULL, 0, 0.00, '1', 0.00, NULL, NULL, 0.00, NULL, 'youtube', NULL, '<div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"hidden-xs hidden-sm\"><h2 class=\"mb-0 text-color-standard\" style=\"font-family: var(--visage-font-heading-family, inherit); overflow-wrap: anywhere; padding-bottom: 0px; padding-top: 0px; word-break: normal; font-size: var(--visage-text-size-2); line-height: var(--visage-text-size-2-line-height); letter-spacing: -0.02em;\">Turn that empty space into a homey nook with poster art.</h2></div><div class=\"text-color-standard\"><ul><li>5 size options</li><li>2 paper stock options</li><li>Horizontal &amp; vertical formats</li><li>Vivid, full-colour printing</li><li><br></li></ul><p>Welcome to decorating at its simplest. Lightweight and easy to display, posters deliver a finished look without all the planning and measuring required for heavier art pieces. In the mood to experiment? Use posters to try out new art. Just create your prints, order and…voila: you’ve now got a preview of your future gallery. Their no-fuss quality also makes posters ideal for nurseries and kids’ rooms.</p><p>To start creating your poster, pick a size and paper stock. Then easily upload your image. Or, browse our gallery of wall prints, featuring everything from chic graphics to kid-friendly illustrations. After that, we\'ll take care of the rest, professionally printing and delivering your order. Your wall art will arrive vibrant, polished and ready to hang.</p><p><br></p></div></div><div class=\"col-6 col-xs-12\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 638.5px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px; background-color: rgb(255, 255, 255);\"><div class=\"progressive-image-wrapper\"><img src=\"https://cms.cloudinary.vpsvc.com/images/c_scale,dpr_auto,f_auto,q_auto:good,w_700/legacy_dam/en-us/s001282578/CA-photogift-cat-FY21-tile-dyanmic-poster-BG-001\" alt=\"poster art\" class=\"fluid-image\" style=\"height: auto; max-width: 100%; width: 614.5px;\"></div></div>', '<div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Full Bleed Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.54\" x 2.05\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">90 x 52 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Document Trim Size</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.43\" x 1.93\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">87 x 49 mm</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\"><br></p></div></div></div><div class=\"mb-2 row\" style=\"margin: 0 calc(var(--visage-grid-gutter) * -1); padding-left: 0px; font-family: Graphik; font-size: 18px; letter-spacing: -0.18px;\"><div class=\"col-6 col-xs-4 col-sm-4\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><p class=\"mt-0 mb-2 strong text-size-6 text-color-standard\" style=\"font-weight: var(--visage-strong-font-weight,bold); font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em; margin-bottom: 8px !important;\">Safety Area</p></div><div class=\"col-6 col-xs-8 col-sm-8\" style=\"list-style-type: none; margin-left: 0px; margin-right: 0px; max-width: none; padding: 0 var(--visage-grid-gutter); vertical-align: top; width: 177.359px;\"><div class=\"\" style=\"display: flex; flex-flow: column wrap;\"><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">3.31\" x 1.81\"</p><p class=\"my-0 text-size-6 text-color-standard\" style=\"font-size: var(--visage-text-size-6); line-height: var(--visage-text-size-6-line-height); letter-spacing: -0.01em;\">84 x 46 mm</p></div></div></div>', 1, 5000, 'Mounted Wall Art', 'Give rooms a refresh or create a whole new look with the easy addition of wall posters. Explore customizable art prints or upload your own design.', 'uploads/images/13-03-2022/622cfb19bc6a0.png', 1, 1, 1, 1, 1, 1, 'mounted-wall-art', NULL, '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52384,7 +52528,11 @@ CREATE TABLE `product_cross_sales` (
 --
 
 INSERT INTO `product_cross_sales` (`id`, `product_id`, `cross_sale_product_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
+(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
+(2, 3, 2, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(3, 3, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 4, 2, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(5, 4, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52412,7 +52560,14 @@ INSERT INTO `product_galary_images` (`id`, `product_id`, `images_source`, `creat
 (5, 2, 'uploads/images/12-03-2022/622bab9f85ab1.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
 (6, 2, 'uploads/images/12-03-2022/622bab9faf281.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
 (7, 2, 'uploads/images/12-03-2022/622bab9fdc03c.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
-(8, 2, 'uploads/images/12-03-2022/622baba0187b1.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(8, 2, 'uploads/images/12-03-2022/622baba0187b1.png', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(9, 3, 'uploads/images/13-03-2022/622cf8b93ebb4.png', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(10, 3, 'uploads/images/13-03-2022/622cf8b994238.jpeg', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(11, 3, 'uploads/images/13-03-2022/622cf8b9d16e0.jpeg', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(12, 3, 'uploads/images/13-03-2022/622cf8b9e7399.png', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(13, 4, 'uploads/images/13-03-2022/622cfb1952075.jpeg', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(14, 4, 'uploads/images/13-03-2022/622cfb196a004.png', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(15, 4, 'uploads/images/13-03-2022/622cfb19a4951.png', '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52433,7 +52588,11 @@ CREATE TABLE `product_related_sales` (
 --
 
 INSERT INTO `product_related_sales` (`id`, `product_id`, `related_sale_product_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
+(1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
+(2, 3, 2, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(3, 3, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 4, 2, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(5, 4, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52504,7 +52663,39 @@ CREATE TABLE `product_sku` (
 
 INSERT INTO `product_sku` (`id`, `product_id`, `sku`, `purchase_price`, `selling_price`, `additional_shipping`, `variant_image`, `status`, `product_stock`, `track_sku`, `weight`, `length`, `breadth`, `height`, `created_at`, `updated_at`) VALUES
 (1, 1, '012365', 0.00, 1250.00, 0, NULL, 1, 1000, NULL, '0', '0', '0', '0', '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
-(2, 2, '012237', 0.00, 1250.00, 0, NULL, 1, 0, NULL, '0', '0', '0', '0', '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(2, 2, '012237', 0.00, 1250.00, 0, NULL, 1, 0, NULL, '0', '0', '0', '0', '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(3, 3, 'FS-1\"x1\"-Standard-Red', 0.00, 750.00, 0, NULL, 1, 0, 'FS-1\"x1\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 3, 'FS-1\"x1\"-Standard-Blue', 0.00, 750.00, 0, NULL, 1, 0, 'FS-1\"x1\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(5, 3, 'FS-1\"x1\"-Rounded-Red', 0.00, 760.00, 0, NULL, 1, 0, 'FS-1\"x1\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(6, 3, 'FS-1\"x1\"-Rounded-Blue', 0.00, 760.00, 0, NULL, 1, 0, 'FS-1\"x1\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(7, 3, 'FS-2\"x2\"-Standard-Red', 0.00, 800.00, 0, NULL, 1, 0, 'FS-2\"x2\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(8, 3, 'FS-2\"x2\"-Standard-Blue', 0.00, 800.00, 0, NULL, 1, 0, 'FS-2\"x2\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(9, 3, 'FS-2\"x2\"-Rounded-Red', 0.00, 810.00, 0, NULL, 1, 0, 'FS-2\"x2\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(10, 3, 'FS-2\"x2\"-Rounded-Blue', 0.00, 810.00, 0, NULL, 1, 0, 'FS-2\"x2\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(11, 3, 'FS-3\"x3\"-Standard-Red', 0.00, 855.00, 0, NULL, 1, 0, 'FS-3\"x3\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(12, 3, 'FS-3\"x3\"-Standard-Blue', 0.00, 855.00, 0, NULL, 1, 0, 'FS-3\"x3\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(13, 3, 'FS-3\"x3\"-Rounded-Red', 0.00, 875.00, 0, NULL, 1, 0, 'FS-3\"x3\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(14, 3, 'FS-3\"x3\"-Rounded-Blue', 0.00, 875.00, 0, NULL, 1, 0, 'FS-3\"x3\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(15, 3, 'FS-4\"x4\"-Standard-Red', 0.00, 960.00, 0, NULL, 1, 0, 'FS-4\"x4\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(16, 3, 'FS-4\"x4\"-Standard-Blue', 0.00, 960.00, 0, NULL, 1, 0, 'FS-4\"x4\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(17, 3, 'FS-4\"x4\"-Rounded-Red', 0.00, 975.00, 0, NULL, 1, 0, 'FS-4\"x4\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(18, 3, 'FS-4\"x4\"-Rounded-Blue', 0.00, 975.00, 0, NULL, 1, 0, 'FS-4\"x4\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(19, 4, 'FS-1\"x1\"-Standard-Red', 0.00, 755.00, 0, NULL, 1, 0, 'MWA-1\"x1\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(20, 4, 'FS-1\"x1\"-Standard-Blue', 0.00, 775.00, 0, NULL, 1, 0, 'MWA-1\"x1\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(21, 4, 'FS-1\"x1\"-Rounded-Red', 0.00, 765.00, 0, NULL, 1, 0, 'MWA-1\"x1\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(22, 4, 'FS-1\"x1\"-Rounded-Blue', 0.00, 769.00, 0, NULL, 1, 0, 'MWA-1\"x1\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(23, 4, 'FS-2\"x2\"-Standard-Red', 0.00, 805.00, 0, NULL, 1, 0, 'MWA-2\"x2\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(24, 4, 'FS-2\"x2\"-Standard-Blue', 0.00, 800.00, 0, NULL, 1, 0, 'MWA-2\"x2\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(25, 4, 'FS-2\"x2\"-Rounded-Red', 0.00, 815.00, 0, NULL, 1, 0, 'MWA-2\"x2\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(26, 4, 'FS-2\"x2\"-Rounded-Blue', 0.00, 810.00, 0, NULL, 1, 0, 'MWA-2\"x2\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(27, 4, 'FS-3\"x3\"-Standard-Red', 0.00, 855.00, 0, NULL, 1, 0, 'MWA-3\"x3\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(28, 4, 'FS-3\"x3\"-Standard-Blue', 0.00, 845.00, 0, NULL, 1, 0, 'MWA-3\"x3\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(29, 4, 'FS-3\"x3\"-Rounded-Red', 0.00, 875.00, 0, NULL, 1, 0, 'MWA-3\"x3\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(30, 4, 'FS-3\"x3\"-Rounded-Blue', 0.00, 895.00, 0, NULL, 1, 0, 'MWA-3\"x3\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(31, 4, 'FS-4\"x4\"-Standard-Red', 0.00, 960.00, 0, NULL, 1, 0, 'MWA-4\"x4\"-Standard-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(32, 4, 'FS-4\"x4\"-Standard-Blue', 0.00, 990.00, 0, NULL, 1, 0, 'MWA-4\"x4\"-Standard-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(33, 4, 'FS-4\"x4\"-Rounded-Red', 0.00, 975.00, 0, NULL, 1, 0, 'MWA-4\"x4\"-Rounded-Red', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(34, 4, 'FS-4\"x4\"-Rounded-Blue', 0.00, 1025.00, 0, NULL, 1, 0, 'MWA-4\"x4\"-Rounded-Blue', '0', '0', '0', '0', '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52530,7 +52721,15 @@ INSERT INTO `product_tag` (`id`, `product_id`, `tag_id`, `created_at`, `updated_
 (3, 1, 4, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
 (4, 2, 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
 (5, 2, 3, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
-(6, 2, 4, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(6, 2, 4, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(7, 3, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(8, 3, 5, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(9, 3, 6, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(10, 3, 7, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(11, 4, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(12, 4, 5, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(13, 4, 6, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(14, 4, 7, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52552,7 +52751,11 @@ CREATE TABLE `product_up_sales` (
 
 INSERT INTO `product_up_sales` (`id`, `product_id`, `up_sale_product_id`, `created_at`, `updated_at`) VALUES
 (1, 1, 2, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
-(2, 1, 1, '2022-03-11 20:07:48', '2022-03-11 20:07:48');
+(2, 1, 1, '2022-03-11 20:07:48', '2022-03-11 20:07:48'),
+(3, 3, 2, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 3, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(5, 4, 2, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(6, 4, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52571,6 +52774,108 @@ CREATE TABLE `product_variations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `product_variations`
+--
+
+INSERT INTO `product_variations` (`id`, `product_id`, `product_sku_id`, `attribute_id`, `attribute_value_id`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 3, 3, 5, 20, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(2, 3, 3, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(3, 3, 3, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 3, 4, 5, 20, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(5, 3, 4, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(6, 3, 4, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(7, 3, 5, 5, 20, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(8, 3, 5, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(9, 3, 5, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(10, 3, 6, 5, 20, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(11, 3, 6, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(12, 3, 6, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(13, 3, 7, 5, 21, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(14, 3, 7, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(15, 3, 7, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(16, 3, 8, 5, 21, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(17, 3, 8, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(18, 3, 8, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(19, 3, 9, 5, 21, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(20, 3, 9, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(21, 3, 9, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(22, 3, 10, 5, 21, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(23, 3, 10, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(24, 3, 10, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(25, 3, 11, 5, 22, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(26, 3, 11, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(27, 3, 11, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(28, 3, 12, 5, 22, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(29, 3, 12, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(30, 3, 12, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(31, 3, 13, 5, 22, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(32, 3, 13, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(33, 3, 13, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(34, 3, 14, 5, 22, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(35, 3, 14, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(36, 3, 14, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(37, 3, 15, 5, 24, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(38, 3, 15, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(39, 3, 15, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(40, 3, 16, 5, 24, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(41, 3, 16, 2, 5, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(42, 3, 16, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(43, 3, 17, 5, 24, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(44, 3, 17, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(45, 3, 17, 1, 2, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(46, 3, 18, 5, 24, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(47, 3, 18, 2, 6, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(48, 3, 18, 1, 9, NULL, NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(49, 4, 19, 5, 20, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(50, 4, 19, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(51, 4, 19, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(52, 4, 20, 5, 20, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(53, 4, 20, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(54, 4, 20, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(55, 4, 21, 5, 20, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(56, 4, 21, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(57, 4, 21, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(58, 4, 22, 5, 20, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(59, 4, 22, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(60, 4, 22, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(61, 4, 23, 5, 21, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(62, 4, 23, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(63, 4, 23, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(64, 4, 24, 5, 21, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(65, 4, 24, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(66, 4, 24, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(67, 4, 25, 5, 21, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(68, 4, 25, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(69, 4, 25, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(70, 4, 26, 5, 21, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(71, 4, 26, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(72, 4, 26, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(73, 4, 27, 5, 22, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(74, 4, 27, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(75, 4, 27, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(76, 4, 28, 5, 22, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(77, 4, 28, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(78, 4, 28, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(79, 4, 29, 5, 22, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(80, 4, 29, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(81, 4, 29, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(82, 4, 30, 5, 22, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(83, 4, 30, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(84, 4, 30, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(85, 4, 31, 5, 24, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(86, 4, 31, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(87, 4, 31, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(88, 4, 32, 5, 24, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(89, 4, 32, 2, 5, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(90, 4, 32, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(91, 4, 33, 5, 24, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(92, 4, 33, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(93, 4, 33, 1, 2, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(94, 4, 34, 5, 24, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(95, 4, 34, 2, 6, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(96, 4, 34, 1, 9, NULL, NULL, '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -52609,9 +52914,10 @@ CREATE TABLE `recent_view_products` (
 --
 
 INSERT INTO `recent_view_products` (`id`, `seller_product_id`, `user_id`, `viewed_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2022-03-12', '2022-03-11 21:19:25', '2022-03-11 21:31:38'),
+(1, 1, 1, '2022-03-12', '2022-03-11 21:19:25', '2022-03-12 15:23:34'),
 (2, 2, 1, '2022-03-12', '2022-03-11 21:48:37', '2022-03-11 21:48:37'),
-(3, 2, 2, '2022-03-12', '2022-03-11 22:12:55', '2022-03-11 22:12:55');
+(3, 2, 2, '2022-03-12', '2022-03-11 22:12:55', '2022-03-11 22:12:55'),
+(4, 3, 1, '2022-03-13', '2022-03-12 19:47:37', '2022-03-12 20:50:15');
 
 -- --------------------------------------------------------
 
@@ -53141,8 +53447,10 @@ CREATE TABLE `seller_products` (
 --
 
 INSERT INTO `seller_products` (`id`, `user_id`, `product_id`, `tax`, `tax_type`, `discount`, `discount_type`, `discount_start_date`, `discount_end_date`, `product_name`, `slug`, `thum_img`, `status`, `stock_manage`, `is_approved`, `min_sell_price`, `max_sell_price`, `total_sale`, `avg_rating`, `recent_view`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0, NULL, 0, '1', NULL, NULL, 'Business Card', 'business-card', NULL, 1, 1, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-11 21:51:08', '2022-03-11 19:38:31', '2022-03-11 21:51:08'),
-(2, 1, 2, 0, '0', 0, '1', NULL, NULL, 'Tote-Bag-2203450423', 'tote-bag-2203450423', NULL, 1, 0, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-11 22:12:55', '2022-03-11 20:05:52', '2022-03-11 22:12:55');
+(1, 1, 1, 0, NULL, 0, '1', NULL, NULL, 'Business Card', 'business-card', NULL, 1, 1, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-12 15:23:34', '2022-03-11 19:38:31', '2022-03-12 15:23:34'),
+(2, 1, 2, 0, NULL, 0, '1', NULL, NULL, 'Canvas Prints', 'canvas-prints', NULL, 1, 0, 1, 1250.00, 1250.00, 0, 0.00, '2022-03-11 22:12:55', '2022-03-11 20:05:52', '2022-03-12 19:50:55'),
+(3, 1, 3, 0, '0', 0, '1', NULL, NULL, 'Forex Sticker', 'forex-sticker', NULL, 1, 0, 1, 750.00, 750.00, 0, 0.00, '2022-03-12 20:50:15', '2022-03-12 19:47:06', '2022-03-12 20:50:15'),
+(4, 1, 4, 0, '0', 0, '1', NULL, NULL, 'Mounted Wall Art', 'mounted-wall-art', NULL, 1, 0, 1, 755.00, 755.00, 0, 0.00, '2022-03-12 19:57:13', '2022-03-12 19:57:13', '2022-03-12 19:57:13');
 
 -- --------------------------------------------------------
 
@@ -53169,7 +53477,39 @@ CREATE TABLE `seller_product_s_k_us` (
 
 INSERT INTO `seller_product_s_k_us` (`id`, `user_id`, `product_id`, `product_sku_id`, `product_stock`, `purchase_price`, `selling_price`, `status`, `created_at`, `updated_at`) VALUES
 (1, 1, 1, '1', 1000, 0, 1250, 1, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
-(2, 1, 2, '2', 0, 0, 1250, 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52');
+(2, 1, 2, '2', 0, 0, 1250, 1, '2022-03-11 20:05:52', '2022-03-11 20:05:52'),
+(3, 1, 3, '3', 0, 0, 750, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(4, 1, 3, '4', 0, 0, 750, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(5, 1, 3, '5', 0, 0, 760, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(6, 1, 3, '6', 0, 0, 760, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(7, 1, 3, '7', 0, 0, 800, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(8, 1, 3, '8', 0, 0, 800, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(9, 1, 3, '9', 0, 0, 810, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(10, 1, 3, '10', 0, 0, 810, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(11, 1, 3, '11', 0, 0, 855, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(12, 1, 3, '12', 0, 0, 855, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(13, 1, 3, '13', 0, 0, 875, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(14, 1, 3, '14', 0, 0, 875, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(15, 1, 3, '15', 0, 0, 960, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(16, 1, 3, '16', 0, 0, 960, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(17, 1, 3, '17', 0, 0, 975, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(18, 1, 3, '18', 0, 0, 975, 1, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(19, 1, 4, '19', 0, 0, 755, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(20, 1, 4, '20', 0, 0, 775, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(21, 1, 4, '21', 0, 0, 765, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(22, 1, 4, '22', 0, 0, 769, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(23, 1, 4, '23', 0, 0, 805, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(24, 1, 4, '24', 0, 0, 800, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(25, 1, 4, '25', 0, 0, 815, 1, '2022-03-12 19:57:13', '2022-03-12 19:57:13'),
+(26, 1, 4, '26', 0, 0, 810, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(27, 1, 4, '27', 0, 0, 855, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(28, 1, 4, '28', 0, 0, 845, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(29, 1, 4, '29', 0, 0, 875, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(30, 1, 4, '30', 0, 0, 895, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(31, 1, 4, '31', 0, 0, 960, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(32, 1, 4, '32', 0, 0, 990, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(33, 1, 4, '33', 0, 0, 975, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14'),
+(34, 1, 4, '34', 0, 0, 1025, 1, '2022-03-12 19:57:14', '2022-03-12 19:57:14');
 
 -- --------------------------------------------------------
 
@@ -57971,7 +58311,10 @@ INSERT INTO `tags` (`id`, `name`, `url`, `created_at`, `updated_at`) VALUES
 (1, 'printgaraun', NULL, '2022-03-11 19:04:46', '2022-03-11 19:04:46'),
 (2, 'pg', NULL, '2022-03-11 19:04:53', '2022-03-11 19:04:53'),
 (3, 'business card', NULL, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
-(4, 'card', NULL, '2022-03-11 19:38:31', '2022-03-11 19:38:31');
+(4, 'card', NULL, '2022-03-11 19:38:31', '2022-03-11 19:38:31'),
+(5, 'forex', NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(6, 'sticker', NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06'),
+(7, 'business', NULL, '2022-03-12 19:47:06', '2022-03-12 19:47:06');
 
 -- --------------------------------------------------------
 
@@ -58313,7 +58656,8 @@ CREATE TABLE `unit_types` (
 --
 
 INSERT INTO `unit_types` (`id`, `name`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Qty', NULL, 1, NULL, NULL, '2022-03-11 18:17:48', '2022-03-11 18:17:48');
+(1, 'Qty', NULL, 1, NULL, NULL, '2022-03-11 18:17:48', '2022-03-11 18:17:48'),
+(2, 'Hundred(s)', NULL, 1, NULL, NULL, '2022-03-12 19:08:56', '2022-03-12 19:08:56');
 
 -- --------------------------------------------------------
 
@@ -58440,7 +58784,8 @@ INSERT INTO `visitor_histories` (`id`, `date`, `visitors`, `agent`, `device`, `l
 (1, '2022-03-07', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-06 21:36:36', '2022-03-06 21:36:36'),
 (2, '2022-03-09', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-08 19:16:26', '2022-03-08 19:16:26'),
 (3, '2022-03-11', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-11 16:06:04', '2022-03-11 16:06:04'),
-(4, '2022-03-12', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-11 18:15:39', '2022-03-11 18:15:39');
+(4, '2022-03-12', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-11 18:15:39', '2022-03-11 18:15:39'),
+(5, '2022-03-13', '127.0.0.1', 'Chrome-99.0.4844-Blink-Windows 10', 'Windows 10', '', '2022-03-12 18:36:17', '2022-03-12 18:36:17');
 
 -- --------------------------------------------------------
 
@@ -59786,13 +60131,13 @@ ALTER TABLE `attendances`
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `bank_accounts`
@@ -59858,7 +60203,7 @@ ALTER TABLE `blog_post_tag`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `brand_category`
@@ -59900,7 +60245,7 @@ ALTER TABLE `carriers`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -59918,7 +60263,7 @@ ALTER TABLE `category_images`
 -- AUTO_INCREMENT for table `category_product`
 --
 ALTER TABLE `category_product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `chart_of_accounts`
@@ -59936,7 +60281,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `compares`
@@ -60176,7 +60521,7 @@ ALTER TABLE `headers`
 -- AUTO_INCREMENT for table `header_category_panels`
 --
 ALTER TABLE `header_category_panels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `header_new_user_zone_panels`
@@ -60188,13 +60533,13 @@ ALTER TABLE `header_new_user_zone_panels`
 -- AUTO_INCREMENT for table `header_product_panels`
 --
 ALTER TABLE `header_product_panels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `header_slider_panels`
 --
 ALTER TABLE `header_slider_panels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `holidays`
@@ -60284,7 +60629,7 @@ ALTER TABLE `lb_contents`
 -- AUTO_INCREMENT for table `log_activity`
 --
 ALTER TABLE `log_activity`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `mega_menu_bottom_panels`
@@ -60302,13 +60647,13 @@ ALTER TABLE `mega_menu_right_panels`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `menu_columns`
 --
 ALTER TABLE `menu_columns`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `menu_elements`
@@ -60338,7 +60683,7 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `multi_mega_menus`
 --
 ALTER TABLE `multi_mega_menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `news_letters`
@@ -60458,25 +60803,25 @@ ALTER TABLE `pricings`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_cross_sales`
 --
 ALTER TABLE `product_cross_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product_galary_images`
 --
 ALTER TABLE `product_galary_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `product_related_sales`
 --
 ALTER TABLE `product_related_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product_reviews`
@@ -60494,25 +60839,25 @@ ALTER TABLE `product_shippings`
 -- AUTO_INCREMENT for table `product_sku`
 --
 ALTER TABLE `product_sku`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `product_tag`
 --
 ALTER TABLE `product_tag`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `product_up_sales`
 --
 ALTER TABLE `product_up_sales`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product_variations`
 --
 ALTER TABLE `product_variations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `profiles`
@@ -60524,7 +60869,7 @@ ALTER TABLE `profiles`
 -- AUTO_INCREMENT for table `recent_view_products`
 --
 ALTER TABLE `recent_view_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `referral_codes`
@@ -60620,13 +60965,13 @@ ALTER TABLE `search_terms`
 -- AUTO_INCREMENT for table `seller_products`
 --
 ALTER TABLE `seller_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `seller_product_s_k_us`
 --
 ALTER TABLE `seller_product_s_k_us`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `seller_reviews`
@@ -60752,7 +61097,7 @@ ALTER TABLE `support_ticket_pirority`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `terms_conditions`
@@ -60812,7 +61157,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `unit_types`
 --
 ALTER TABLE `unit_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -60836,7 +61181,7 @@ ALTER TABLE `version_histories`
 -- AUTO_INCREMENT for table `visitor_histories`
 --
 ALTER TABLE `visitor_histories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `wallet_balances`
@@ -60848,7 +61193,7 @@ ALTER TABLE `wallet_balances`
 -- AUTO_INCREMENT for table `wishlists`
 --
 ALTER TABLE `wishlists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `working_processes`
