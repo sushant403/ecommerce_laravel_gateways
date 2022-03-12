@@ -1,8 +1,8 @@
-<section class="banner_part pt-5">
+<section class="banner_part pt-3">
   <div class="container">
     <div class="row">
       
-{{-- 
+      @if(env('VERTICAL_MEGA_MENU') === true && env('HORIZONTAL_MEGA_MENU') === false)
       @if($menus->count())
       <div class="col-xl-3 col-lg-4 col-md-6 d-none d-lg-block">
         <div class="side-menu animate-dropdown outer-bottom-xs">
@@ -161,10 +161,10 @@
         </div>
         <!-- /.side-menu -->
       </div>
-      @endif --}}
+      @endif
+      @endif
 
-
-      <div class="col-xl-12 col-lg-8">
+      <div class="col-xl-12 col-lg-12">
         <div class="row">
           @php
             $headerSliderSection = $headers->where('type','slider')->first();

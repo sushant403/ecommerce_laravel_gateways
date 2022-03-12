@@ -10,7 +10,7 @@
         <span></span>
         <span></span>
       </div> --}}
-       <div class="loader"><span>PrintGaraun..</span></div>
+       <div class="loader"><span>Please Wait..</span></div>
     </div>
     <input type="hidden" id="url" value="{{url('/')}}">
     @php
@@ -24,5 +24,6 @@
 
     @include('frontend.default.partials._submenu',[$compares])
     @include('frontend.default.partials._mainmenu')
+    @include('frontend.default.partials._mega_horizontal_menu')
 
   </header>

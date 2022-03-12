@@ -104,7 +104,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-5">
+            <div class="col-lg-6 col-xl-6">
                 <div class="product_details">
                     @foreach($product->product->categories->where('status', 1) as $key => $category)
                         <a href="{{route('frontend.category-product',['slug' => $category->slug, 'item' =>'category'])}}" class="product_details_btn_iner">{{$category->name}}</a>

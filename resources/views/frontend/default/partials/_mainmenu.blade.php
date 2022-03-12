@@ -23,7 +23,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-6 order-3 order-lg-2">
                 <div class="category_box">
-                    <form method="GET" id="search_form">
+                    <form method="GET" id="search_form" autocomplete="off">
                         <div class="input-group category_box_iner">
                             <div class="input-group-prepend">
                                 <select class="country_list category_list category_id default_select"

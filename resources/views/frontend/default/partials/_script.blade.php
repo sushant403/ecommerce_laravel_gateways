@@ -1,4 +1,5 @@
 <script src="{{ asset(asset_path('frontend/default/compile_js/app.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/printg_script.js')) }}"></script>
 
 <script>
 
