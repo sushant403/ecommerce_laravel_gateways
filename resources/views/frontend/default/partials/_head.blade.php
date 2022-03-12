@@ -35,6 +35,7 @@
     @else
         <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/compile_css/app.css'))}}" />
     @endif
+    <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/css/page_css/pg_megamenu.css'))}}" />
     <style>
         .toast-success {
             background-color: {{ $themeColor->success_color }}!important;

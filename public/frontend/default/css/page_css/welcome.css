@@ -85,8 +85,8 @@
    height: auto;
 }
 .slider_img_div {
-   height: 365px;
-   width: 660px;
+   height: auto;
+   width: auto;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -96,19 +96,19 @@
 .slider_img_div img {
    display: block;
    max-width: 100%;
-   max-height: 365px;
+   max-height: 100%;
    width: auto!important;
 }
 
 .header_img_category_div {
    display: flex;
-   height: 108px;
+   height: auto;
    align-items: center;
    justify-content: center;
-   width: 108px;
+   width: auto;
 }
 .header_img_category_div img{
- max-height: 108px;
+ max-height: 100%;
 }
 
 a.single_feature_slide_img img {

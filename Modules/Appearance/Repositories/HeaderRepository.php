@@ -76,7 +76,7 @@ class HeaderRepository {
             return true;
         }elseif($header->type == 'slider'){
             if(isset($data['slider_image'])){
-                $imagename = ImageStore::saveImage($data['slider_image'],365,660);
+                $imagename = ImageStore::saveImage($data['slider_image']);
                 $data['slider_image'] = $imagename;
             }
 
@@ -131,7 +131,7 @@ class HeaderRepository {
 
             if(isset($data['slider_image'])){
                 ImageStore::deleteImage($slider->slider_image);
-                $imagename = ImageStore::saveImage($data['slider_image'],365,660);
+                $imagename = ImageStore::saveImage($data['slider_image']);
                 $data['slider_image'] = $imagename;
             }else{
                 $data['slider_image'] =$slider->slider_image;

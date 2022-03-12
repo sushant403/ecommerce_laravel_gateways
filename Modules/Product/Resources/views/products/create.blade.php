@@ -111,13 +111,13 @@
                                             <span class="text-danger">{{ $errors->first('model_number') }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3" id="category_select_div">
+                                    <div class="col-lg-9" id="category_select_div">
                                         @include('product::products.components._category_list_select')
                                     </div>
-                                    <div class="col-lg-3" id="brand_select_div">
+                                    <div class="col-lg-4" id="brand_select_div">
                                         @include('product::products.components._brand_list_select')
                                     </div>
-                                    <div class="col-lg-3" id="unit_select_div">
+                                    <div class="col-lg-4" id="unit_select_div">
                                         @include('product::products.components._unit_list_select')
                                     </div>
                                     <div class="col-lg-3">
@@ -134,7 +134,7 @@
                                             <span class="text-danger">{{ $errors->first('barcode_type') }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div class="primary_input mb-15">
                                             <label class="primary_input_label" for=""> {{
                                                 __('product.minimum_order_qty') }} <span class="text-danger">*</span>
@@ -146,7 +146,7 @@
                                                 $errors->first('minimum_order_qty') }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <div class="primary_input mb-15">
                                             <label class="primary_input_label" for=""> {{ __('product.max_order_qty')
                                                 }}</label>
