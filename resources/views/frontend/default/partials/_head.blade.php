@@ -1,57 +1,21 @@
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    
-    <title>@if(trim($__env->yieldContent('title'))) @yield('title') | {{app('general_setting')->meta_site_title}} @else {{app('general_setting')->meta_site_title}} @endif</title>
-    <meta name="_token" content="@php echo csrf_token(); @endphp" />
-    @section('share_meta')
-        @show
-    @laravelPWA
-
-    <link rel="icon" href="{{asset(asset_path(app('general_setting')->favicon))}}" type="image/png">
-
-    @php
-        $themeColor = Modules\Appearance\Entities\ThemeColor::where('status',1)->first();
-    @endphp
-    <style>
-        :root {
-            --background_color : {{ $themeColor->background_color }};
-            --base_color : {{ $themeColor->base_color }};
-            --text_color : {{ $themeColor->text_color }};
-            --feature_color : {{ $themeColor->feature_color }};
-            --footer_color : {{ $themeColor->footer_color }};
-            --navbar_color : {{ $themeColor->navbar_color }};
-            --menu_color : {{ $themeColor->menu_color }};
-            --border_color : {{ $themeColor->border_color }};
-            --success_color : {{ $themeColor->success_color }};
-            --warning_color : {{ $themeColor->warning_color }};
-            --danger_color : {{ $themeColor->danger_color }};
-        }
-        .default_select{
-            color: var(--text_color);
-            border-color: var(--border_color);
-            width: 100%;
-            font-weight: 300;
-        }
-        
-        .demo_addons {
-            float: right;
-            background: var(--base_color);
-            color: var(--navbar_color);
-            border-radius: 5px;
-            padding: 0px 10px;
-            font-size: 10px;
-            margin-top: 5px;
-        }
-        .dashboard_sidebar a {
-            padding: 14px 25px!important;
-        }
-    </style>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<title>@if(trim($__env->yieldContent('title'))) @yield('title') | {{app('general_setting')->meta_site_title}} @else {{app('general_setting')->meta_site_title}} @endif</title>
+<meta name="_token" content="@php echo csrf_token(); @endphp" />
+@section('share_meta')
+    @show
+@laravelPWA
+<link rel="icon" href="{{asset(asset_path(app('general_setting')->favicon))}}" type="image/png">
+@php
+    $themeColor = Modules\Appearance\Entities\ThemeColor::where('status',1)->first();
+@endphp
+<style>
+    :root { --background_color : {{ $themeColor->background_color }};--base_color : {{ $themeColor->base_color }};--text_color : {{ $themeColor->text_color }};--feature_color : {{ $themeColor->feature_color }};--footer_color : {{ $themeColor->footer_color }};--navbar_color : {{ $themeColor->navbar_color }};--menu_color : {{ $themeColor->menu_color }};--border_color : {{ $themeColor->border_color }};--success_color : {{ $themeColor->success_color }};--warning_color : {{ $themeColor->warning_color }};--danger_color : {{ $themeColor->danger_color }}; }
+    .default_select{color: var(--text_color);border-color: var(--border_color);width: 100%;font-weight: 300;}
+    .demo_addons {float: right;background: var(--base_color);color: var(--navbar_color);border-radius: 5px;padding: 0px 10px;font-size: 10px;margin-top: 5px;}
+    .dashboard_sidebar a {padding: 14px 25px!important;}
+</style>
     @if(isRtl())
         <link rel="stylesheet" href="{{asset(asset_path('frontend/default/compile_css/rtl_app.css'))}}" />
         <style>
@@ -71,10 +35,7 @@
     @else
         <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/compile_css/app.css'))}}" />
     @endif
-
-
     <style>
-
         .toast-success {
             background-color: {{ $themeColor->success_color }}!important;
         }
@@ -85,8 +46,6 @@
             background-color: {{ $themeColor->warning_color }}!important;
         }
             /*----------------------------------------------------*/
-
-
         .newsletter_form_wrapper .newsletter_form_inner .newsletter_form_thumb {
             height: 100%;
             background-image: url({{ asset(asset_path($popupContent->image)) }});

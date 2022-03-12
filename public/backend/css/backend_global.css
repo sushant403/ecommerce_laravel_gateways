@@ -97,7 +97,7 @@ input:checked + .slider:before {
     width: 100%;
 }
 
-.loader {
+/*.loader {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -156,7 +156,65 @@ input:checked + .slider:before {
     border-radius: 50%;
 
     background-size: cover;
+}*/
+
+.loader {background: #ffffff;width:250px;height:50px;line-height: 50px;text-align: center;position: fixed;top: 50%;left:50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);font-family: Poppins, sans-serif;font-weight: 900;letter-spacing: 0.2em;z-index: 9999999;opacity: 0.9;border-radius: 10px;}.loader span {position: absolute;width: 250px;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);        transform: translate(-50%, -50%);color: #000;text-transform: uppercase;}
+  
+.loader span::before,
+.loader span::after {
+content: "";
+display: block;
+width: 5px;
+height: 5px;
+background: #FF7F00;
+position: absolute;
+-webkit-animation: load 0.7s infinite alternate ease-in-out;
+        animation: load 0.7s infinite alternate ease-in-out;
 }
+
+.loader span::before {
+top: -10px;
+}
+
+.loader span::after {
+bottom: -10px;
+}
+
+@-webkit-keyframes load {
+0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+}
+50% {
+    height: 8px;
+    width: 40px;
+}
+100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+}
+}
+
+@keyframes load {
+0% {
+    left: 0;
+    height: 30px;
+    width: 15px;
+}
+50% {
+    height: 8px;
+    width: 40px;
+}
+100% {
+    left: 235px;
+    height: 30px;
+    width: 15px;
+}
+}
+
+.preloader_setup{display:none;height:100%;width:100%;z-index:10500!important}
 
 .review_star {
     color: #ffb400;

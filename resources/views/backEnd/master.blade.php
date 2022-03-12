@@ -62,12 +62,15 @@ if($adminColor->color_mode == "solid"){
 <body class="admin">
 
     <div id="pre-loader" class="d-none">
+        {{-- <div class="loader">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div> --}}
         <div class="loader">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+            <span>Loading..</span>
+          </div>
     </div>
 
     <input type="hidden" id="url" value="{{url('/')}}">
