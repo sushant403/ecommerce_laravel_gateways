@@ -62,7 +62,7 @@
     </a>
     <a href="{{ route('frontend.customer_profile') }}" class="lang_drawer_activator">
         <i class="ti-receipt"></i>
-        <span>{{__('defaultTheme.language')}}</span>
+        <span>{{__('defaultTheme.user')}}</span>
     </a>
     <a href="{{ route('frontend.cart') }}">
         <i class="ti-shopping-cart"></i>
