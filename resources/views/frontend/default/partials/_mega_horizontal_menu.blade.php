@@ -77,7 +77,7 @@
                                                 <div class="col-xl-6 col-lg-5">
                                                     <div class="content"> <a href="shop-details-1"
                                                             class="thumb d-block"> <img
-                                                                src="assets/images/menu/mega-menu.jpg" alt=""> </a>
+                                                                src="images/menu/mega-menu.jpg" alt=""> </a>
                                                         <a href="shop-details-1" class="title d-block">
                                                             <h6> Super Comfort Sofa </h6>
                                                         </a> <a href="shop-details-1" class="price">$250.00</a>
@@ -261,7 +261,7 @@
                                                         <div class="col-xl-6 col-lg-5">
                                                             <div class="content"> <a href="shop-details-1"
                                                                     class="thumb d-block"> <img
-                                                                        src="assets/images/menu/mega-menu.jpg" alt="">
+                                                                        src="images/menu/mega-menu.jpg" alt="">
                                                                 </a> <a href="shop-details-1"
                                                                     class="title d-block">
                                                                     <h6> Super Comfort Sofa </h6>
