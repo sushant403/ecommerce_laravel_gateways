@@ -2,40 +2,43 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redirect;
-use Modules\Bkash\Http\Controllers\BkashController;
-use Modules\MercadoPago\Http\Controllers\MercadoPagoController;
-use Modules\PaymentGateway\Http\Controllers\StripeController;
-use Modules\PaymentGateway\Http\Controllers\RazorpayController;
-use Modules\PaymentGateway\Http\Controllers\PayPalController;
-use Modules\PaymentGateway\Http\Controllers\PaystackController;
-use Modules\PaymentGateway\Http\Controllers\PaytmController;
-use Modules\PaymentGateway\Http\Controllers\InstamojoController;
-use Modules\PaymentGateway\Http\Controllers\BankPaymentController;
-use Modules\PaymentGateway\Http\Controllers\MidtransController;
-use Modules\PaymentGateway\Http\Controllers\PayUmoneyController;
-use Modules\PaymentGateway\Http\Controllers\FlutterwaveController;
-use App\Models\DigitalFileDownload;
+use Exception;
+use App\Traits\Otp;
 use App\Models\Order;
+use App\Traits\SendMail;
+use App\Traits\GeneratePdf;
+use Illuminate\Http\Request;
+use App\Services\OrderService;
+use Illuminate\Support\Facades\DB;
+use App\Models\DigitalFileDownload;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use Unicodeveloper\Paystack\Paystack;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Modules\UserActivityLog\Traits\LogActivity;
+use Modules\Bkash\Http\Controllers\BkashController;
 use Modules\PaymentGateway\Services\PaymentGatewayService;
 use Modules\OrderManage\Repositories\CancelReasonRepository;
-use Modules\Shipping\Http\Controllers\OrderSyncWithCarrierController;
-use Modules\SslCommerz\Library\SslCommerz\SslCommerzNotification;
-use Unicodeveloper\Paystack\Paystack;
-use App\Services\OrderService;
+use Modules\PaymentGateway\Http\Controllers\EsewaController;
+use Modules\PaymentGateway\Http\Controllers\PaytmController;
+use Modules\PaymentGateway\Http\Controllers\KhaltiController;
+use Modules\PaymentGateway\Http\Controllers\PayPalController;
+use Modules\PaymentGateway\Http\Controllers\StripeController;
+use Modules\MercadoPago\Http\Controllers\MercadoPagoController;
 use Modules\OrderManage\Repositories\DeliveryProcessRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Brian2694\Toastr\Facades\Toastr;
-use App\Traits\GeneratePdf;
-use App\Traits\Otp;
-use App\Traits\SendMail;
-use Exception;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
+use Modules\PaymentGateway\Http\Controllers\MidtransController;
+use Modules\PaymentGateway\Http\Controllers\PaystackController;
+use Modules\PaymentGateway\Http\Controllers\RazorpayController;
+use Modules\PaymentGateway\Http\Controllers\InstamojoController;
+use Modules\PaymentGateway\Http\Controllers\PayUmoneyController;
 use Modules\GeneralSetting\Repositories\GeneralSettingRepository;
-use Modules\UserActivityLog\Traits\LogActivity;
+use Modules\PaymentGateway\Http\Controllers\ConnectIPSController;
+use Modules\SslCommerz\Library\SslCommerz\SslCommerzNotification;
+use Modules\PaymentGateway\Http\Controllers\BankPaymentController;
+use Modules\PaymentGateway\Http\Controllers\FlutterwaveController;
+use Modules\Shipping\Http\Controllers\OrderSyncWithCarrierController;
 
 class OrderController extends Controller
 {
@@ -137,6 +140,21 @@ class OrderController extends Controller
 
         session()->put('order_payment', '1');
 
+        if ($request->method == "eSewa") {
+            $data['gateway_id'] = encrypt(5);
+            $esewaController = new EsewaController;
+            $response = $esewaController->payment($request->all());
+        }
+        if ($request->method == "Khalti") {
+            $data['gateway_id'] = encrypt(6);
+            $khaltiController = new KhaltiController;
+            $response = $khaltiController->payment($request->all());
+        }
+        if ($request->method == "ConnectIPS") {
+            $data['gateway_id'] = encrypt(7);
+            $connectipsController = new ConnectIPSController;
+            $response = $connectipsController->payment($request->all());
+        }
 
         if ($request->method == "Stripe") {
             $data['gateway_id'] = encrypt(4);
@@ -144,7 +162,7 @@ class OrderController extends Controller
             $response = $stripeController->stripePost($request->all());
         }
         if ($request->method == "RazorPay") {
-            $data['gateway_id'] = encrypt(6);
+            $data['gateway_id'] = encrypt(21);
             $razorpayController = new RazorpayController;
             $response = $razorpayController->payment($request->all());
         }
@@ -154,12 +172,12 @@ class OrderController extends Controller
             $response = $paypalController->payment($request->all());
         }
         if ($request->method == "Paystack") {
-            $data['gateway_id'] = encrypt(5);
+            $data['gateway_id'] = encrypt(20);
             $paystack = new Paystack(env('PAYSTACK_SECRET'), env('PAYSTACK_PAYMENT_URL'));
             return $paystack->getAuthorizationUrl()->redirectNow();
         }
         if ($request->method == "BankPayment") {
-            $data['gateway_id'] = encrypt(7);
+            $data['gateway_id'] = encrypt(8);
             $bankController = new BankPaymentController;
             $response = $bankController->store($request->all());
         }

@@ -1,5 +1,6 @@
-<div class="col-lg-12 text-center mt_5 mb_25">
+<div class="col-lg-12">
     <span></span>
+    <img src="{{ asset('payment_gateway/stripe.png') }}" alt="{{ __('defaultTheme.process_to_payment') }}" class="pl-3" width="120">
 </div>
 <form action="{{route('frontend.order_payment')}}" method="post" id="stripe_form" class="stripe_form d-none">
     <input type="hidden" name="method" value="Stripe">
@@ -13,6 +14,6 @@
         data-name="Stripe Payment"
         data-image="{{asset(asset_path(app('general_setting')->favicon))}}"
         data-locale="auto"
-        data-currency="usd">
+        data-currency="npr">
     </script>
 </form>

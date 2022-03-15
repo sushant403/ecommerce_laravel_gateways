@@ -47,6 +47,7 @@
         "spondonit/amazcart-service": "^1.0",
         "stevebauman/location": "^6.1",
         "stripe/stripe-php": "^7.69",
+        "sudiptpa/omnipay-esewa": "^1.0",
         "twilio/sdk": "^6.15",
         "unicodeveloper/laravel-paystack": "^1.0",
         "van-ons/laraberg": "^1.1",

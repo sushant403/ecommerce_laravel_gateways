@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "441c75e3ce479aa74a65e5c642adb49b",
+    "content-hash": "b7338ded12607dd25418e79106c22709",
     "packages": [
         {
             "name": "anandsiddharth/laravel-paytm-wallet",
@@ -8482,6 +8482,65 @@
                 "source": "https://github.com/stripe/stripe-php/tree/v7.100.0"
             },
             "time": "2021-10-11T20:05:45+00:00"
+        },
+        {
+            "name": "sudiptpa/omnipay-esewa",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sudiptpa/esewa.git",
+                "reference": "27b802b75aa50ac371a723b4b7ee8b030ef12439"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sudiptpa/esewa/zipball/27b802b75aa50ac371a723b4b7ee8b030ef12439",
+                "reference": "27b802b75aa50ac371a723b4b7ee8b030ef12439",
+                "shasum": ""
+            },
+            "require": {
+                "omnipay/common": "^3"
+            },
+            "require-dev": {
+                "omnipay/tests": "^3",
+                "phpro/grumphp": "^0.14.0",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Omnipay\\Esewa\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sujip Thapa",
+                    "email": "sudiptpa@gmail.com"
+                }
+            ],
+            "description": "eSewa API driver for the Omnipay payment processing library.",
+            "homepage": "https://github.com/sudiptpa/esewa",
+            "keywords": [
+                "esewa",
+                "gateway",
+                "merchant",
+                "omnipay",
+                "pay",
+                "payment"
+            ],
+            "support": {
+                "issues": "https://github.com/sudiptpa/esewa/issues",
+                "source": "https://github.com/sudiptpa/esewa/tree/master"
+            },
+            "time": "2020-07-14T11:43:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

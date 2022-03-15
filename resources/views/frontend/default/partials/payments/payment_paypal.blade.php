@@ -1,3 +1,4 @@
+<img src="{{ asset('payment_gateway/paypal.png') }}" alt="{{ __('defaultTheme.process_to_payment') }}" class="pl-3" width="150">
 <form action="{{route('frontend.order_payment')}}" method="post" class="paypal_form_payment_23 d-none">
     @csrf
     <input type="hidden" name="method" value="Paypal">

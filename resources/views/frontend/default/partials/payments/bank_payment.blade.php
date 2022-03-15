@@ -43,7 +43,7 @@
                     <span class="invalid-feedback" role="alert" id="amount_validation"></span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row border p-4">
                 <div class="col-md-12">
                     <table class="table table-bordered">
 

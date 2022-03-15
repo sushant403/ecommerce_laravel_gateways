@@ -8,6 +8,24 @@
                 }
             @endphp
             <ul class="nav nav_list" role="tablist">
+                @if(@$gateway_activations->where('method', 'eSewa')->first()->active_status == 1)
+                <li class="nav-item mb-2">
+                    <a class="nav-link @if(@$methods[0]->method == 'eSewa') active show @endif" href="#esewaTab" role="tab"
+                        data-toggle="tab" id="1" aria-selected="true">{{__('payment_gatways.esewa')}}</a>
+                </li>
+                @endif
+                @if(@$gateway_activations->where('method', 'Khalti')->first()->active_status == 1)
+                <li class="nav-item mb-2">
+                    <a class="nav-link @if(@$methods[0]->method == 'Khalti') active show @endif" href="#khaltiTab" role="tab"
+                        data-toggle="tab" id="1" aria-selected="true">{{__('payment_gatways.khalti')}}</a>
+                </li>
+                @endif
+                @if(@$gateway_activations->where('method', 'ConnectIPS')->first()->active_status == 1)
+                <li class="nav-item mb-2">
+                    <a class="nav-link @if(@$methods[0]->method == 'ConnectIPS') active show @endif" href="#connectipsTab" role="tab"
+                        data-toggle="tab" id="1" aria-selected="true">{{__('payment_gatways.connectips')}}</a>
+                </li>
+                @endif
                 @if(@$gateway_activations->where('method', 'PayPal')->first()->active_status == 1)
                 <li class="nav-item mb-2">
                     <a class="nav-link @if(@$methods[0]->method == 'PayPal') active show @endif" href="#paypalTab" role="tab"
@@ -110,6 +128,59 @@
     <div class="white_box_30px mb_30">
         <div class="tab-content">
 
+            @if(@$gateway_activations->where('method', 'eSewa')->first()->active_status == 1)
+                <div role="tabpanel" class="tab-pane fade @if(@$methods[0]->method == 'eSewa') active show @endif" id="esewaTab">
+                    <div class="box_header common_table_header ">
+                        <div class="main-title d-md-flex">
+                            <h3 class="mb-0 mr-30 mb_xs_15px mb_sm_20px">{{ __('payment_gatways.esewa_configuration') }}</h3>
+                            <ul class="d-flex">
+                                <div class="img_logo_div">
+                                    <img src="{{ showImage(@$gateway_activations->where('method', 'eSewa')->first()->logo) }}" alt="">
+                                </div>
+
+                            </ul>
+                        </div>
+                    </div>
+                    @include('paymentgateway::components.esewa_config')
+
+                </div>
+            @endif
+
+            @if(@$gateway_activations->where('method', 'Khalti')->first()->active_status == 1)
+                <div role="tabpanel" class="tab-pane fade @if(@$methods[0]->method == 'Khalti') active show @endif" id="khaltiTab">
+                    <div class="box_header common_table_header ">
+                        <div class="main-title d-md-flex">
+                            <h3 class="mb-0 mr-30 mb_xs_15px mb_sm_20px">{{ __('payment_gatways.khalti_configuration') }}</h3>
+                            <ul class="d-flex">
+                                <div class="img_logo_div">
+                                    <img src="{{ showImage(@$gateway_activations->where('method', 'Khalti')->first()->logo) }}" alt="">
+                                </div>
+
+                            </ul>
+                        </div>
+                    </div>
+                    @include('paymentgateway::components.khalti_config')
+
+                </div>
+            @endif
+
+            @if(@$gateway_activations->where('method', 'ConnectIPS')->first()->active_status == 1)
+                <div role="tabpanel" class="tab-pane fade @if(@$methods[0]->method == 'ConnectIPS') active show @endif" id="connectipsTab">
+                    <div class="box_header common_table_header ">
+                        <div class="main-title d-md-flex">
+                            <h3 class="mb-0 mr-30 mb_xs_15px mb_sm_20px">{{ __('payment_gatways.connectips_configuration') }}</h3>
+                            <ul class="d-flex">
+                                <div class="img_logo_div">
+                                    <img src="{{ showImage(@$gateway_activations->where('method', 'ConnectIPS')->first()->logo) }}" alt="">
+                                </div>
+
+                            </ul>
+                        </div>
+                    </div>
+                    @include('paymentgateway::components.connectips_config')
+
+                </div>
+            @endif
 
             @if(@$gateway_activations->where('method', 'PayPal')->first()->active_status == 1)
                 <div role="tabpanel" class="tab-pane fade @if(@$methods[0]->method == 'PayPal') active show @endif" id="paypalTab">

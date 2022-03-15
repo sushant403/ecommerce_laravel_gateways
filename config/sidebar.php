@@ -5,7 +5,7 @@ return array (
     'sidebar-manager.index' => 2,
     'product_module' => 3,
     'order_manage' => 4,
-    'form_builder' => 4,
+    'form_builder' => 5,
     'page_builder' => 4,
     'cusotmer.list_active' => 5,
     'frontend_cms' => 6,

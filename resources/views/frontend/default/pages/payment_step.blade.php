@@ -70,8 +70,9 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             @if($payment->method == 'Cash On Delivery')
-                                                                <div class="col-lg-12 text-center mt_5 mb_25">
+                                                                <div class="col-lg-12">
                                                                     <span></span>
+                                                                    <img src="{{ asset('payment_gateway/cod.jpg') }}" alt="{{ __('defaultTheme.process_to_payment') }}" class="pr-2" width="150">
                                                                 </div>
                                                             @elseif($payment->method == 'Wallet')
                                                                 <div class="col-lg-12 text-center mt_5 mb_25">
@@ -79,6 +80,15 @@
                                                                     <br>
                                                                     <span></span>
                                                                 </div>
+                                                            @elseif($payment->method == 'eSewa')
+                                                            @include('frontend.default.partials.payments.payment_esewa')
+
+                                                            @elseif($payment->method == 'Khalti')
+                                                            @include('frontend.default.partials.payments.payment_khalti')
+
+                                                            @elseif($payment->method == 'ConnectIPS')
+                                                            @include('frontend.default.partials.payments.payment_connectips')
+
                                                             @elseif($payment->method == 'Stripe')
                                                                 @include('frontend.default.partials.payments.stripe_payment')
                                                             @elseif(isModuleActive('Bkash') && $payment->method=="Bkash")
@@ -538,6 +548,15 @@
                     if(method === 'Stripe'){
                         $('#btn_div').html(`<a href="javascript:void(0)" id="payment_btn_trigger" data-type="Stripe" class="btn_1 m-0 text-uppercase">Pay now</a>`);
                     }
+                    else if(method === 'eSewa'){
+                        $('#btn_div').html(`<a href="javascript:void(0)" id="payment_btn_trigger" data-type="eSewa" class="btn_1 m-0 text-uppercase">Pay now</a>`);
+                    }
+                    else if(method === 'Khalti'){
+                        $('#btn_div').html(`<a href="javascript:void(0)" id="payment_btn_trigger" data-type="Khalti" class="btn_1 m-0 text-uppercase">Pay now</a>`);
+                    }
+                    else if(method === 'ConnectIPS'){
+                        $('#btn_div').html(`<a href="javascript:void(0)" id="payment_btn_trigger" data-type="ConnectIPS" class="btn_1 m-0 text-uppercase">Pay now</a>`);
+                    }
                     else if(method === 'Bkash'){
                         $('#btn_div').html(`<a href="javascript:void(0)" id="payment_btn_trigger" data-type="Bkash" class="btn_1 m-0 text-uppercase">Pay now</a>`);
                     }
@@ -659,6 +678,15 @@
                 function paymentAction(method){
                     if(method == 'Stripe'){
                         $('#stribe_submit_btn').click();
+                    }
+                    else if(method == 'eSewa'){
+                        $('#esewa_btn').click();
+                    }
+                    else if(method == 'Khalti'){
+                        $('#khalti_btn').click();
+                    }
+                    else if(method == 'ConnectIPS'){
+                        $('#connectips_btn').click();
                     }
                     else if(method == 'PayPal'){
                         $('.paypal_btn').click();

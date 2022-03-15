@@ -95,6 +95,23 @@
 
             });
             });
+            $(document).on('change', '#esewa_logo', function(){
+
+            getFileName($(this).val(),'#thumbnail_image_file');
+            imageChangeWithFile($(this)[0],'#logoeSewaDiv');
+            });
+
+            $(document).on('change', '#khalti_logo', function(){
+
+            getFileName($(this).val(),'#thumbnail_image_file');
+            imageChangeWithFile($(this)[0],'#logoKhaltiDiv');
+            });
+
+            $(document).on('change', '#connectips_logo', function(){
+
+            getFileName($(this).val(),'#thumbnail_image_file');
+            imageChangeWithFile($(this)[0],'#logoConnectIPSDiv');
+            });
 
             $(document).on('change', '#paypal_logo', function(){
 

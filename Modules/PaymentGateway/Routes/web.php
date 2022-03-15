@@ -38,3 +38,7 @@ Route::post('/googlePay-payment-status', 'GooglePayController@paymentStatus')->n
 
 Route::post('/flutterwave-pay', 'FlutterwaveController@payment')->name('flatterwave.payment');
 Route::get('/flutterwave/callback', 'FlutterwaveController@callback')->name('flatterwave.callback');
+
+Route::post('esewa-payment', 'EsewaController@payment')->name('esewa.payment');
+Route::get('pay-with-esewa', 'EsewaController@success')->name('paywithesewa');
+Route::get('/esewa-payment-failed', 'EsewaController@failed')->name('esewa.failed');

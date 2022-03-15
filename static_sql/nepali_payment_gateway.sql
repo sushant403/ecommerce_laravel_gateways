@@ -1,0 +1,3 @@
+INSERT INTO `payment_methods`(`id`, `method`, `type`, `active_status`, `module_status`, `logo`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES (15,'eSewa','System','1','1','payment_gateway/esewa.png','1','1',now(),now());
+INSERT INTO `payment_methods`(`id`, `method`, `type`, `active_status`, `module_status`, `logo`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES (16,'Khalti','System','1','1','payment_gateway/khalti.png','1','1',now(),now());
+INSERT INTO `payment_methods`(`id`, `method`, `type`, `active_status`, `module_status`, `logo`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES (17,'ConnectIPS','System','1','1','payment_gateway/connectips.png','1','1',now(),now())
