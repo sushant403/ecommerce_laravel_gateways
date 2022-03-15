@@ -14,7 +14,8 @@
     <title>{{ __('defaultTheme.sorry_page_not_found') }}</title>
     <style>
     	body{
-    		background-image: url({{url(asset_path('backend/img/login-bg.jpg'))}});
+    		/* background-image: url({{url(asset_path('backend/img/login-bg.jpg'))}}); */
+            background: #fff;
     		background-repeat: no-repeat;
     		background-size: cover;
     	}
@@ -466,33 +467,33 @@
   <body  class="antialiased font-sans">
 
   <div class="md:flex min-h-screen">
-            <div class="w-full md:w-1/2   flex items-center justify-center">
+            <div class="w-full flex items-center justify-center">
                 <div class="max-w-sm m-8">
                     <div class="text-black text-5xl md:text-15xl font-black">
                     	<img src="{{asset(asset_path('backend/img/404_Error.png'))}}" alt="" class="img img-fluid">  </div>
 
                     <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
-                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-white">
+                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal">
                         {{ __('defaultTheme.sorry_the_page_you_are_looking_for_could_not_be_found') }}                    </p>
 
                     <a href="{{url('/')}}">
-                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-white">
+                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
                             {{ __('defaultTheme.go_home') }}
                         </button>
                     </a>
                     <a href="{{ URL::previous() }}">
-                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-white">
+                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
                             {{ __('defaultTheme.go_back') }}
                         </button>
                     </a>
                 </div>
             </div>
 
-            <div class="relative pb-full md:flex md:pb-0 md:min-h-screen w-full md:w-1/2">
+            {{-- <div class="relative pb-full md:flex md:pb-0 md:min-h-screen w-full md:w-1/2">
                     <div class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center">
                    	</div>
-            </div>
+            </div> --}}
         </div>
 
 
