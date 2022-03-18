@@ -572,6 +572,3 @@
 
 @include(theme('partials.add_to_cart_script'))
 @include(theme('partials.add_to_compare_script'))
-
-
-
