@@ -14,7 +14,7 @@
         $path = \Str::title($getPath);
         
     @endphp
-    <title id="header_title">@yield('page-title', app('general_setting')->site_title) | {{$path}}</title>
+    <title id="header_title">{{$path}} | @yield('page-title', app('general_setting')->site_title)</title>
     <meta name="_token" content="@php echo csrf_token(); @endphp" />
     @laravelPWA
     <!-- Bootstrap CSS -->

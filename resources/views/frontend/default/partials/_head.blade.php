@@ -16,38 +16,15 @@
     .demo_addons {float: right;background: var(--base_color);color: var(--navbar_color);border-radius: 5px;padding: 0px 10px;font-size: 10px;margin-top: 5px;}
     .dashboard_sidebar a {padding: 14px 25px!important;}
 </style>
-    @if(isRtl())
-        <link rel="stylesheet" href="{{asset(asset_path('frontend/default/compile_css/rtl_app.css'))}}" />
-        <style>
-            .demo_addons {
-                float: left!important;
-                background: var(--base_color);
-                color: var(--navbar_color);
-                border-radius: 5px;
-                padding: 0px 10px;
-                font-size: 10px;
-                margin-top: 5px;
-            }
-            .dashboard_sidebar a {
-                padding: 14px 80px 14px 25px!important;
-            }
-        </style>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    @if(isRtl()) <link rel="stylesheet" href="{{asset(asset_path('frontend/default/compile_css/rtl_app.css'))}}" /> <style> .demo_addons { float: left!important; background: var(--base_color); color: var(--navbar_color); border-radius: 5px; padding: 0px 10px; font-size: 10px; margin-top: 5px; } .dashboard_sidebar a { padding: 14px 80px 14px 25px!important; } </style> 
     @else
         <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/compile_css/app.css'))}}" />
     @endif
     <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/fonts/flaticon.css'))}}" />
     <link rel="stylesheet"  href="{{asset(asset_path('frontend/default/compile_css/printg_style.css'))}}" />
     <style>
-        .toast-success {
-            background-color: {{ $themeColor->success_color }}!important;
-        }
-        .toast-error{
-            background-color: {{ $themeColor->danger_color }}!important;
-        }
-        .toast-warning{
-            background-color: {{ $themeColor->warning_color }}!important;
-        }
-            /*----------------------------------------------------*/
+        .toast-success { background-color: {{ $themeColor->success_color }}!important; } .toast-error{ background-color: {{ $themeColor->danger_color }}!important; } .toast-warning{ background-color: {{ $themeColor->warning_color }}!important; }
         .newsletter_form_wrapper .newsletter_form_inner .newsletter_form_thumb {
             height: 100%;
             background-image: url({{ asset(asset_path($popupContent->image)) }});
@@ -221,6 +198,43 @@
         </style>
     @endif
 
+    <style>
+        ul.page-dropdown-menu.d-flex.flex-wrap.align-items-center.justify-content-center {
+            justify-content: space-evenly !important;
+        }
+
+        .header_part .main_menu .category_box_input{
+            border-radius: 2em !important;
+        }
+        .header_part .main_menu .category_box .input-group-append{
+            background: transparent;
+            position: absolute;
+            right: 1px;
+            height: 55px;
+            width: 55px;
+            line-height: 55px;
+            z-index: 9999;
+        }
+        .header_part .main_menu .category_box .input-group-append i{
+            color: var(--text_color);
+            font-size: 20px;
+        }
+        .main-menu__widge-box li a i::before{
+            font-weight: 600 !important;
+            font-size: 24px !important;
+        }
+        input#inlineFormInputGroup{ border-color: #dadada }
+        input#inlineFormInputGroup::placeholder{ font-size: 17px !important;color: #7f7f7f !important; }
+        input#inlineFormInputGroup::-moz-placeholder{ font-size: 17px !important;color: #7f7f7f !important; }
+        input#inlineFormInputGroup::-webkit-input-placeholder{ font-size: 17px !important;color: #7f7f7f !important; }
+
+        /* .mega-menu .page-dropdown-menu .dropdown-list.megamenu .dropdown.megamenu-dropdown {
+            transition: -webkit-transform .2s ease-in-out;
+            transition: transform .2s ease-in-out;
+            transition: transform .2s ease-in-out,-webkit-transform .2s ease-in-out;
+        } */
+
+    </style>
 
     @section('styles')
         @show
@@ -265,7 +279,4 @@
         const _config = {!!  json_encode(collect(app('general_setting'))->only(['currency_symbol','decimal_limit','currency_symbol_position']))  !!};
         const _user_currency = {!!  json_encode(collect(app('user_currency'))->only(['symbol','convert_rate']))  !!};
     </script>
-
-
-
   </head>

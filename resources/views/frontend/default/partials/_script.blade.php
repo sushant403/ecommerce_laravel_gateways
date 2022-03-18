@@ -1,4 +1,16 @@
 <script src="{{ asset(asset_path('frontend/default/compile_js/app.js')) }}"></script>
+
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/isotope.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/jarallax.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/jquery.magnific-popup.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/nice-select.v1.0.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/wow.v1.3.0.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/tweenMax.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/slick.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/jquery-ui.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/plugin/jquery.countdown.min.js')) }}"></script>
+<script src="{{ asset(asset_path('frontend/default/compile_js/topbar.min.js')) }}"></script>
+
 <script src="{{ asset(asset_path('frontend/default/compile_js/printg_script.js')) }}"></script>
 
 <script>
@@ -32,8 +44,30 @@
     }
 </script>
 
+<script>
+    topbar.config({
+    autoRun      : true, 
+    barThickness : 3,
+    barColors    : {
+      '0'        : 'rgba(255,  142, 0, .8)',
+      '.3'       : 'rgba(255,  142, 0, .8)',
+      '1.0'      : 'rgba(231, 76,  60,  .8)'
+    },
+    shadowBlur   : 5,
+    shadowColor  : 'rgba(0, 0, 0, .7)',
+    className    : 'topbar',
+  })
+  topbar.show();
+  (function step() {
+    setTimeout(function() {  
+      if (topbar.progress('+.01') < 1) step()
+    }, 16)
+  })();
 
-
+    window.onload = function(){
+    topbar.hide()
+    }
+</script>
 
 @php echo Toastr::message(); @endphp
 

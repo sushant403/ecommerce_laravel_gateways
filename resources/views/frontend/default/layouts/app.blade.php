@@ -80,16 +80,10 @@
     $top_bar = Modules\FrontendCMS\Entities\HomePageSection::where('section_name','top_bar')->first();
 @endphp
 
-
-
 @include('frontend.default.partials._header',[$popupContent,$compares])
 
     @section('content')
         @show
-    <!-- jquery plugin here -->
-
-    <!-- project estimate section -->
-    @include('frontend.default.partials._newsletter')
-    <!-- project estimate section end-->
+    {{-- @include('frontend.default.partials._newsletter') --}}
 
 @include('frontend.default.partials._footer')

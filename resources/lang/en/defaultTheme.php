@@ -159,7 +159,7 @@ return [
     'all_categories' => 'All Categories',
     'best_deals' => 'Best Deals',
     'new_user_zone' => 'New User Zone',
-    'search_your_item' => 'Search your item',
+    'search_your_item' => 'Search',
     'email_or_phone' => 'email or phone',
     'remember_me' => 'Remember me',
     'forgot_password' => 'Forgot password',

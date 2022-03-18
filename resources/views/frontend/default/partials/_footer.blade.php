@@ -1,12 +1,12 @@
 <!-- footer part -->
-<footer class="footer_part">
+<footer class="footer_part py-5">
     <div class="container">
         <div class="row justify-content-between pt-15 footer_reverce">
             <div class="col-lg-5">
                 <div class="single_footer_content copy_r_mt ">
                     <h4>{{ app('general_setting')->footer_about_title }}</h4>
                     <p>{{ app('general_setting')->footer_about_description }}</p>
-                    <div class="copyright_text">
+                    <div class="copyright_text pb-4">
                         <p>
                             @php echo app('general_setting')->footer_copy_right; @endphp
                         </p>
@@ -47,6 +47,14 @@
                                 <li><a href="{{ url($page->pageData->slug) }}">{{$page->name}}</a></li>
                             @endforeach
                         </ul>
+                    </div>
+                    <div class="copyright_text">
+                        <div class="footer-payment wow fadeInUp animated">
+                            <a href="#0" class="mr-4"> <img src="{{ asset('payment_gateway/esewa.png') }}" width="100" alt="payment"> </a>
+                            <a href="#0" class="mr-4"> <img src="{{ asset('payment_gateway/khalti.png') }}" width="100" alt="payment"> </a>
+                            <a href="#0" class="mr-4"> <img src="{{ asset('payment_gateway/fonepay.png') }}" width="100" alt="payment"> </a>
+                            <a href="#0" class="mr-4"> <img src="{{ asset('payment_gateway/connectips.png') }}" width="100" alt="payment"> </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<div class="sub_menu {{$top_bar->status == 0 ? 'd-none':''}}" id="top_bar">
+<div class="sub_menu {{$top_bar->status == 0 ? 'd-none':''}}" id="top_bar" style="background: #f8f8f8">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-sm-10 col-md-12 col-lg-4 align-items-center">

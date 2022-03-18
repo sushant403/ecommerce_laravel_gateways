@@ -14,7 +14,16 @@
 
 @section('content')
 @include('frontend.default.partials._mega_menu')
+@php
+$best_deal = $widgets->where('section_name','best_deals')->first();
+@endphp
 
-@include('frontend.default.buildup_printg')
+<div class="py-5">
+<center>The New MindBlowing Idea is Here...</center>
+</div>
 
+@include(theme('partials._subscription_modal'))
 @endsection
+
+@include(theme('partials.add_to_cart_script'))
+@include(theme('partials.add_to_compare_script'))
